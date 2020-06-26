@@ -8,26 +8,19 @@ import com.marcelomnc.score10pinbowling.dto.GameDTO;
 import java.util.Map;
 
 public class GamesPrinter implements IGamesPrinter {
+    private String framesHeader = null;
 
     @Override
     public void printGames(Map<String, GameDTO> games) {
-        //Printing frames header
         System.out.println("\n" + "-----------------------------------" + Constants.PRINT__GAMES_LABEL + "------------------------------------");
-        System.out.print(StringUtils.justifyLeft(Constants.PRINT__FRAME_LABEL, Constants.PRINT__FIRST_COLUMN_MAX_CHARS) + Constants.PRINT__FRAME_SEPARATOR);
-
-        for (int i = 1; i <= 9; i++) {
-            System.out.print(StringUtils.center(String.valueOf(i), Constants.PRINT__FRAME_MAX_CHARS) + Constants.PRINT__FRAME_SEPARATOR);
-        }
-        System.out.println(StringUtils.center(String.valueOf(10), Constants.PRINT__FRAME_MAX_CHARS) + Constants.PRINT__FRAME_SEPARATOR);
-
         games.forEach((gameOwner, gameDTO) -> {
             if (gameDTO.isValid()) {
                 //Only print valid games
-
-                System.out.println(gameDTO.getOwnerName());
+                this.printPlayerNameHeader(gameDTO.getOwnerName());
+                this.printFramesHeader();
                 System.out.print(StringUtils.justifyLeft(Constants.PRINT__PINFALLS_LABEL, Constants.PRINT__FIRST_COLUMN_MAX_CHARS) + Constants.PRINT__FRAME_SEPARATOR);
 
-                //Printing pinfalls
+                //Printing pinFalls
                 for (int i = 0; i < gameDTO.getFrameDTOS().size(); i++) {
                     FrameDTO frame = gameDTO.getFrameDTOS().get(i);
                     String toPrint1, toPrint2, toPrint3 = "";
@@ -102,5 +95,31 @@ public class GamesPrinter implements IGamesPrinter {
         });
 
         System.out.println("----------------------------------------------------------------------------" + "\n");
+    }
+
+    private void printPlayerNameHeader(String playerName) {
+        String toPrint = Constants.PRINT__PLAYER_LABEL + playerName;
+        if (toPrint.length() > Constants.PRINT__LINE_MAX_CHARS) {
+            toPrint = toPrint.substring(0, Constants.PRINT__LINE_MAX_CHARS - 3) + Constants.PRINT__ELLIPSIS_LABEL;
+        }
+        System.out.println(toPrint);
+    }
+
+    private void printFramesHeader() {
+        //Printing frames header
+        if (this.framesHeader == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(StringUtils.justifyLeft(Constants.PRINT__FRAME_LABEL, Constants.PRINT__FIRST_COLUMN_MAX_CHARS));
+            sb.append(Constants.PRINT__FRAME_SEPARATOR);
+            for (int i = 1; i <= 9; i++) {
+                sb.append(StringUtils.center(String.valueOf(i), Constants.PRINT__FRAME_MAX_CHARS));
+                sb.append(Constants.PRINT__FRAME_SEPARATOR);
+            }
+            sb.append(StringUtils.center(String.valueOf(10), Constants.PRINT__FRAME_MAX_CHARS));
+            sb.append(Constants.PRINT__FRAME_SEPARATOR);
+            this.framesHeader = sb.toString();
+        }
+
+        System.out.println(this.framesHeader);
     }
 }
