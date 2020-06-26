@@ -5,9 +5,9 @@ import com.marcelomnc.score10pinbowling.dto.PlayerChanceDTO;
 
 class PlayerChancesFileLineParser {
 
-    PlayerChanceDTO parseLine(String scoreLine) {
+    PlayerChanceDTO parseLine(String playerChancesFileLine) {
         PlayerChanceDTO toRet = new PlayerChanceDTO();
-        String[] fields = scoreLine.split(Constants.PLAYER_CHANCES_FILE__FIELD_SEPARATOR);
+        String[] fields = playerChancesFileLine.split(Constants.PLAYER_CHANCES_FILE__FIELD_SEPARATOR);
         toRet.setPlayerName(fields[0]);
         if (fields[1].equals(Constants.PLAYER_CHANCES_FILE__FOUL_INDICATOR)) {
             //F stands for FOUL and means 0 pins fell
