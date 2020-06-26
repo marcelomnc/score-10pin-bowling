@@ -27,7 +27,7 @@ public class PlayerChancesFileProcessor {
 
             scoreFileLines.forEach(scoreFileLine -> {
                 if (playerChancesFileLineValidator.isValid(scoreFileLine)) {
-                    PlayerChanceDTO playerChanceDTO = playerChancesFileLineParser.processLine(scoreFileLine);
+                    PlayerChanceDTO playerChanceDTO = playerChancesFileLineParser.parseLine(scoreFileLine);
                     GameDTO gameDTO = games.get(playerChanceDTO.getPlayerName());
 
                     if (gameDTO == null) {

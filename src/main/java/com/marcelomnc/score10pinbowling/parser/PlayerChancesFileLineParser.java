@@ -5,7 +5,7 @@ import com.marcelomnc.score10pinbowling.dto.PlayerChanceDTO;
 
 public class PlayerChancesFileLineParser {
 
-    public PlayerChanceDTO processLine(String scoreLine) {
+    public PlayerChanceDTO parseLine(String scoreLine) {
         PlayerChanceDTO toRet = new PlayerChanceDTO();
         String[] fields = scoreLine.split(Constants.PLAYER_CHANCES_FILE__FIELD_SEPARATOR);
         toRet.setPlayerName(fields[0]);
