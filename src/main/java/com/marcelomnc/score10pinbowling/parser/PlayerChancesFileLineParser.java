@@ -3,9 +3,9 @@ package com.marcelomnc.score10pinbowling.parser;
 import com.marcelomnc.score10pinbowling.common.Constants;
 import com.marcelomnc.score10pinbowling.dto.PlayerChanceDTO;
 
-public class PlayerChancesFileLineParser {
+class PlayerChancesFileLineParser {
 
-    public PlayerChanceDTO parseLine(String scoreLine) {
+    PlayerChanceDTO parseLine(String scoreLine) {
         PlayerChanceDTO toRet = new PlayerChanceDTO();
         String[] fields = scoreLine.split(Constants.PLAYER_CHANCES_FILE__FIELD_SEPARATOR);
         toRet.setPlayerName(fields[0]);
