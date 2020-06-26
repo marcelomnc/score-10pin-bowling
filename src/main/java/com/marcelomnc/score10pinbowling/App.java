@@ -3,7 +3,7 @@ package com.marcelomnc.score10pinbowling;
 import com.marcelomnc.score10pinbowling.dto.GameDTO;
 import com.marcelomnc.score10pinbowling.printer.GamesPrinter;
 import com.marcelomnc.score10pinbowling.processor.PinFallsProcessor;
-import com.marcelomnc.score10pinbowling.processor.PlayerChancesFileProcessor;
+import com.marcelomnc.score10pinbowling.parser.PlayerChancesFileProcessor;
 import com.marcelomnc.score10pinbowling.processor.ScoresProcessor;
 import com.marcelomnc.score10pinbowling.validator.CommandLineArgsValidator;
 import com.marcelomnc.score10pinbowling.validator.SimpleCommandLineArgsValidator;

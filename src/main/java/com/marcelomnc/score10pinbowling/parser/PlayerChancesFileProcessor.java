@@ -1,8 +1,7 @@
-package com.marcelomnc.score10pinbowling.processor;
+package com.marcelomnc.score10pinbowling.parser;
 
 import com.marcelomnc.score10pinbowling.dto.GameDTO;
 import com.marcelomnc.score10pinbowling.dto.PlayerChanceDTO;
-import com.marcelomnc.score10pinbowling.parser.PlayerChancesFileLineParser;
 import com.marcelomnc.score10pinbowling.validator.PlayerChancesFileLineValidator;
 import com.marcelomnc.score10pinbowling.validator.SimplePlayerChancesFileLineValidator;
 
