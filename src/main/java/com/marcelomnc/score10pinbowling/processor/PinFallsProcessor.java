@@ -80,6 +80,12 @@ public class PinFallsProcessor implements IPinFallsProcessor {
                     }
                 }
             });
+
+            if (gameDTO.getFrameDTOS().size() < 10) {
+                //This is an error, player has not enough chance data on the file
+                gameDTO.setValid(false);
+                LOGGER.log(Level.SEVERE, "Player: " + gameDTO.getOwnerName() + ", has not enough chances data.");
+            }
         });
     }
 
