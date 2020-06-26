@@ -8,9 +8,10 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class PinFallsProcessor {
+public class PinFallsProcessor implements IPinFallsProcessor {
     private static final Logger LOGGER = Logger.getLogger(PinFallsProcessor.class.getName());
 
+    @Override
     public void processPinFalls(Map<String, GameDTO> games) {
         games.forEach((gameOwner, gameDTO) -> {
             gameDTO.getPlayerChanceDTOs().forEach(playerChanceDTO -> {

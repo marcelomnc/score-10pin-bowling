@@ -5,7 +5,9 @@ import com.marcelomnc.score10pinbowling.dto.GameDTO;
 
 import java.util.Map;
 
-public class ScoresProcessor {
+public class ScoresProcessor implements IScoresProcessor {
+
+    @Override
     public void processScores(Map<String, GameDTO> games) {
         games.forEach((gameOwner, gameDTO) -> {
             this.calculateScore(gameDTO, 0, 0);

@@ -6,7 +6,9 @@ import com.marcelomnc.score10pinbowling.dto.GameDTO;
 
 import java.util.Map;
 
-public class GamesPrinter {
+public class GamesPrinter implements IGamesPrinter {
+
+    @Override
     public void printGames(Map<String, GameDTO> games) {
         //Printing frames header
         System.out.println("\n-----------------------------------------------------------------\n");
@@ -19,7 +21,7 @@ public class GamesPrinter {
         games.forEach((gameOwner, gameDTO) -> {
             if (gameDTO.isValid()) {
                 //Only print valid games
-                
+
                 System.out.println(gameDTO.getOwnerName());
                 System.out.print(Constants.PRINT__PINFALLS_LABEL + Constants.PRINT__PINFALLS_VALUE_SEPARATOR);
 

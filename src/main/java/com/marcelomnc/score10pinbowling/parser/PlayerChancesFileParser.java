@@ -2,8 +2,8 @@ package com.marcelomnc.score10pinbowling.parser;
 
 import com.marcelomnc.score10pinbowling.dto.GameDTO;
 import com.marcelomnc.score10pinbowling.dto.PlayerChanceDTO;
+import com.marcelomnc.score10pinbowling.validator.IPlayerChancesFileLineValidator;
 import com.marcelomnc.score10pinbowling.validator.PlayerChancesFileLineValidator;
-import com.marcelomnc.score10pinbowling.validator.SimplePlayerChancesFileLineValidator;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,18 +14,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
 
-public class PlayerChancesFileParser {
+public class PlayerChancesFileParser implements IPlayerChancesFileParser {
     private static final Logger LOGGER = Logger.getLogger(PlayerChancesFileParser.class.getName());
 
+    @Override
     public Map<String, GameDTO> parsePlayerChancesFile(String playerChancesFilePath) {
         Map<String, GameDTO> games = new LinkedHashMap<String, GameDTO>();
 
         try (Stream<String> scoreFileLines = Files.lines(Paths.get(playerChancesFilePath))) {
-            PlayerChancesFileLineValidator playerChancesFileLineValidator = new SimplePlayerChancesFileLineValidator();
+            IPlayerChancesFileLineValidator IPlayerChancesFileLineValidator = new PlayerChancesFileLineValidator();
             PlayerChancesFileLineParser playerChancesFileLineParser = new PlayerChancesFileLineParser();
 
             scoreFileLines.forEach(scoreFileLine -> {
-                if (playerChancesFileLineValidator.isValid(scoreFileLine)) {
+                if (IPlayerChancesFileLineValidator.isValid(scoreFileLine)) {
                     PlayerChanceDTO playerChanceDTO = playerChancesFileLineParser.parseLine(scoreFileLine);
                     GameDTO gameDTO = games.get(playerChanceDTO.getPlayerName());
 
