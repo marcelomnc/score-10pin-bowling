@@ -14,10 +14,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
 
-public class PlayerChancesFileProcessor {
-    private static final Logger LOGGER = Logger.getLogger(PlayerChancesFileProcessor.class.getName());
+public class PlayerChancesFileParser {
+    private static final Logger LOGGER = Logger.getLogger(PlayerChancesFileParser.class.getName());
 
-    public Map<String, GameDTO> processPlayerChancesFile(String playerChancesFilePath) {
+    public Map<String, GameDTO> parsePlayerChancesFile(String playerChancesFilePath) {
         Map<String, GameDTO> games = new LinkedHashMap<String, GameDTO>();
 
         try (Stream<String> scoreFileLines = Files.lines(Paths.get(playerChancesFilePath))) {
