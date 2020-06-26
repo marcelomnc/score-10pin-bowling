@@ -10,7 +10,10 @@ public class ScoresProcessor implements IScoresProcessor {
     @Override
     public void processScores(Map<String, GameDTO> games) {
         games.forEach((gameOwner, gameDTO) -> {
-            this.calculateScore(gameDTO, 0, 0);
+            if (gameDTO.isValid()) {
+                //Calculate scores only for valid games
+                this.calculateScore(gameDTO, 0, 0);
+            }
         });
     }
 
