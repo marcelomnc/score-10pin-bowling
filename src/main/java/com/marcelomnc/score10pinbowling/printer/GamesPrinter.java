@@ -17,7 +17,9 @@ public class GamesPrinter {
         System.out.println(Constants.PRINT__FRAME_SEPARATOR + 10);
 
         games.forEach((gameOwner, gameDTO) -> {
-            if (gameDTO.isPrintable()) {
+            if (gameDTO.isValid()) {
+                //Only print valid games
+                
                 System.out.println(gameDTO.getOwnerName());
                 System.out.print(Constants.PRINT__PINFALLS_LABEL + Constants.PRINT__PINFALLS_VALUE_SEPARATOR);
 

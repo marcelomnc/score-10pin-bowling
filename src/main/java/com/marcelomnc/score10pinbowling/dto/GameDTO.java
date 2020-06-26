@@ -7,12 +7,13 @@ public class GameDTO {
     private String ownerName;
     private List<FrameDTO> frameDTOS;
     private List<PlayerChanceDTO> playerChanceDTOs;
-    private boolean printable;
+    private boolean valid;
 
     public GameDTO(String ownerName) {
         this.ownerName = ownerName;
         this.frameDTOS = new ArrayList<>(10);
         this.playerChanceDTOs = new ArrayList<>();
+        this.valid = true;
     }
 
     public String getOwnerName() {
@@ -39,11 +40,11 @@ public class GameDTO {
         this.playerChanceDTOs = playerChanceDTOs;
     }
 
-    public boolean isPrintable() {
-        return printable;
+    public boolean isValid() {
+        return valid;
     }
 
-    public void setPrintable(boolean printable) {
-        this.printable = printable;
+    public void setValid(boolean valid) {
+        this.valid = valid;
     }
 }
