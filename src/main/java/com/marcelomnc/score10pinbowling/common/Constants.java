@@ -11,4 +11,6 @@ public class Constants {
     public static final String SCORE__FRAMES_LINE_LABEL = "Frame";
     public static final String SCORE__FRAMES_LINE_SEPARATOR = "  ";
     public static final String SCORE__PINFALLS_LINE_LABEL = "Pinfalls";
+    public static final String SCORE__SCORE_LINE_LABEL = "Score";
+    public static final String SCORE__SCORE_LINE_VALUE_SEPARATOR = "  ";
 }
