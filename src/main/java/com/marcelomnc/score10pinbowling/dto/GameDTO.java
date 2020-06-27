@@ -4,24 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameDTO {
-    private String ownerName;
+    private String playerName;
     private List<FrameDTO> frameDTOS;
     private List<PlayerChanceDTO> playerChanceDTOs;
     private boolean valid;
 
-    public GameDTO(String ownerName) {
-        this.ownerName = ownerName;
+    public GameDTO(String playerName) {
+        this.playerName = playerName;
         this.frameDTOS = new ArrayList<>(10);
         this.playerChanceDTOs = new ArrayList<>();
         this.valid = true;
     }
 
-    public String getOwnerName() {
-        return ownerName;
+    public String getPlayerName() {
+        return playerName;
     }
 
-    public void setOwnerName(String ownerName) {
-        this.ownerName = ownerName;
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
     }
 
     public List<FrameDTO> getFrameDTOS() {

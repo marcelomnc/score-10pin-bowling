@@ -16,7 +16,7 @@ public class GamesPrinter implements IGamesPrinter {
         games.forEach((gameOwner, gameDTO) -> {
             if (gameDTO.isValid()) {
                 //Only print valid games
-                this.printPlayerNameHeader(gameDTO.getOwnerName());
+                this.printPlayerNameHeader(gameDTO.getPlayerName());
                 this.printFramesHeader();
                 System.out.print(StringUtils.justifyLeft(Constants.PRINT__PINFALLS_LABEL, Constants.PRINT__FIRST_COLUMN_MAX_CHARS) + Constants.PRINT__FRAME_SEPARATOR);
 

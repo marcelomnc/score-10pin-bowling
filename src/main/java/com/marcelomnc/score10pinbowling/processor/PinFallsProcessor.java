@@ -38,7 +38,7 @@ public class PinFallsProcessor implements IPinFallsProcessor {
                     } else {
                         //This is an error, because if this is the last frame, 3 chances are the maximum only when there is a strike or spare in the first two chances
                         gameDTO.setValid(false);
-                        LOGGER.log(Level.SEVERE, "Player: " + gameDTO.getOwnerName() + ", exceeded chances.");
+                        LOGGER.log(Level.SEVERE, "Player: " + gameDTO.getPlayerName() + ", exceeded chances.");
                         return;
                     }
                 } else {
@@ -56,7 +56,7 @@ public class PinFallsProcessor implements IPinFallsProcessor {
                         } else {
                             //This is an error, because if this is the second chance, sum must be NOT greater than 10
                             gameDTO.setValid(false);
-                            LOGGER.log(Level.SEVERE, "Player: " + gameDTO.getOwnerName() + ", frame: " + (currentFrameIndex + 1) + " exceeded pinfall sum.");
+                            LOGGER.log(Level.SEVERE, "Player: " + gameDTO.getPlayerName() + ", frame: " + (currentFrameIndex + 1) + " exceeded pinfall sum.");
                             return;
                         }
                     } else {
@@ -74,7 +74,7 @@ public class PinFallsProcessor implements IPinFallsProcessor {
                         } else {
                             //This is an error, because if this is the second chance, sum will be more than 10
                             gameDTO.setValid(false);
-                            LOGGER.log(Level.SEVERE, "Player: " + gameDTO.getOwnerName() + ", frame: " + (currentFrameIndex + 1) + " exceeded pinfall sum.");
+                            LOGGER.log(Level.SEVERE, "Player: " + gameDTO.getPlayerName() + ", frame: " + (currentFrameIndex + 1) + " exceeded pinfall sum.");
                             return;
                         }
                     }
@@ -84,7 +84,7 @@ public class PinFallsProcessor implements IPinFallsProcessor {
             if (gameDTO.getFrameDTOS().size() < 10) {
                 //This is an error, player has not enough chance data on the file
                 gameDTO.setValid(false);
-                LOGGER.log(Level.SEVERE, "Player: " + gameDTO.getOwnerName() + ", has not enough chances data.");
+                LOGGER.log(Level.SEVERE, "Player: " + gameDTO.getPlayerName() + ", has not enough chances data.");
             }
         });
     }
