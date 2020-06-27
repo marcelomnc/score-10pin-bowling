@@ -176,3 +176,7 @@ The rendered output by the application for the file above would be as follows
     Score          | 30  | 60  | 90  | 120 | 150 | 180 | 210 | 240 | 270 | 300 |
     ----------------------------------------------------------------------------
 
+## Links
+
+Rules for scoring a bowling game can be found on youtube **[here](https://www.youtube.com/watch?v=aBe71sD8o8c)** and **[here](https://www.youtube.com/watch?v=wY-fT2Gxa5s)**.
+A very complete PDF file can be found **[here](http://usbcongress.http.internapcdn.net/usbcongress/bowl/rulebook/2018-2019Rulebook.pdf)**.
