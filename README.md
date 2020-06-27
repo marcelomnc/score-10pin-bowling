@@ -16,7 +16,7 @@ Clone this repository
 git clone https://github.com/marcelomnc/score-10pin-bowling
 ```
 
-Cd into the repository folder
+Cd into the cloned repository folder
 
 ```bash
 cd score-10pin-bowling
@@ -34,7 +34,7 @@ Maven will create a folder with the name <strong>target</strong>. Cd into it
 cd target
 ```
 
-Inside it you will find this application's executable jar file.
+Inside it you will find this application's executable jar file
 
 ```bash
 ls -l
