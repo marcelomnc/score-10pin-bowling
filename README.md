@@ -28,7 +28,7 @@ Build the project using maven
 mvn install
 ```
 
-Maven will create a folder with the name 'target'. Cd into it
+Maven will create a folder with the name <strong>target</strong>. Cd into it
 
 ```bash
 cd target
@@ -45,7 +45,7 @@ drwxr-xr-x 1 user 197609     0 Jun 25 09:43 generated-test-sources/
 -rw-r--r-- 1 user 197609     0 Jun 25 10:26 java
 drwxr-xr-x 1 user 197609     0 Jun 25 10:10 maven-archiver/
 drwxr-xr-x 1 user 197609     0 Jun 25 10:10 maven-status/
--rw-r--r-- 1 user 197609 24067 Jun 26 18:56 <strong>score-10pin-bowling-1.0-SNAPSHOT.jar</strong>
+-rw-r--r-- 1 user 197609 24067 Jun 26 18:56 score-10pin-bowling-1.0-SNAPSHOT.jar
 drwxr-xr-x 1 user 197609     0 Jun 26 07:50 surefire-reports/
 drwxr-xr-x 1 user 197609     0 Jun 25 10:21 test-classes/
 ```
