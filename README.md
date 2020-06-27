@@ -151,7 +151,7 @@ This is a sample data for the **Player Chances File**
     Perfect	10
     Perfect	10
     
-Rendered output for the mentioned file would be as follows
+The rendered output by the application for the file above would be as follows
 
     -----------------------------------GAMES------------------------------------
     Player: Jeff
