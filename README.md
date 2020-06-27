@@ -45,7 +45,7 @@ drwxr-xr-x 1 user 197609     0 Jun 25 09:43 generated-test-sources/
 -rw-r--r-- 1 user 197609     0 Jun 25 10:26 java
 drwxr-xr-x 1 user 197609     0 Jun 25 10:10 maven-archiver/
 drwxr-xr-x 1 user 197609     0 Jun 25 10:10 maven-status/
--rw-r--r-- 1 user 197609 24067 Jun 26 18:56 <strong>score-10pin-bowling-1.0-SNAPSHOT.jar<strong>
+-rw-r--r-- 1 user 197609 24067 Jun 26 18:56 <strong>score-10pin-bowling-1.0-SNAPSHOT.jar</strong>
 drwxr-xr-x 1 user 197609     0 Jun 26 07:50 surefire-reports/
 drwxr-xr-x 1 user 197609     0 Jun 25 10:21 test-classes/
 ```
