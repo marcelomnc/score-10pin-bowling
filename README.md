@@ -6,7 +6,7 @@ The ins for the app are a text file in which every line has two tab-separated fi
 1. Player Name
 2. Number Of Pins Knocked Down
 
-In the context of this app, the mentioned line (with the two fields) is called a Player Chance. Hence, in this same context, the file that contains all this data is called Player Chances File.
+In the context of this app, the mentioned line (with the two fields) is called a <strong>Player Chance</strong>. Hence, in this same context, the file that contains all this data is called <strong>Player Chances File</strong>.
 
 ## Installation
 
@@ -52,7 +52,7 @@ drwxr-xr-x 1 user 197609     0 Jun 25 10:21 test-classes/
 
 ## Running
 
-To run this application you will need a text file with the Player Chances Data that must be parsed and processed. You can execute it passing the mentioned file path as the first and unique argument like:
+To run this application you will need a text file (<strong>Player Chances File</strong>) with all the data that must be parsed and processed. You can execute it passing the mentioned file path as the first and unique argument like:
 
 ```bash
 java -jar score-10pin-bowling-1.0-SNAPSHOT.jar [PATH_TO_YOUR_FILE]
