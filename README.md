@@ -1,6 +1,6 @@
 # score-10pin-bowling
 
-This is a command line app that parses/processes/builds/calculates all the data (pinFalls and scores) for all the 10 frames in a bowling game played by one or more players.
+This is a command line app that parses/processes/builds/calculates all the data (**pinFalls** and **scores**) for all the 10 frames in a bowling game played by one or more players.
 
 The ins for the app are a text file in which every line has two tab-separated fields:
 
