@@ -98,26 +98,26 @@ This is a sample data for the **Player Chances File**
         John	10
         John	9
         John	0
-        Zeros	0
-        Zeros	0
-        Zeros	0
-        Zeros	0
-        Zeros	0
-        Zeros	0
-        Zeros	0
-        Zeros	0
-        Zeros	0
-        Zeros	0
-        Zeros	0
-        Zeros	0
-        Zeros	0
-        Zeros	0
-        Zeros	0
-        Zeros	0
-        Zeros	0
-        Zeros	0
-        Zeros	0
-        Zeros	0
+        Zeroes	0
+        Zeroes	0
+        Zeroes	0
+        Zeroes	0
+        Zeroes	0
+        Zeroes	0
+        Zeroes	0
+        Zeroes	0
+        Zeroes	0
+        Zeroes	0
+        Zeroes	0
+        Zeroes	0
+        Zeroes	0
+        Zeroes	0
+        Zeroes	0
+        Zeroes	0
+        Zeroes	0
+        Zeroes	0
+        Zeroes	0
+        Zeroes	0
         Fouls	F
         Fouls	F
         Fouls	F
@@ -162,7 +162,7 @@ The printed output by the app for the file above would be as follows:
         Frame          |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  | 10  |
         PinFalls       | 3 / | 6 3 |   X | 8 1 |   X |   X | 9 0 | 7 / | 4 4 |X 9 0|
         Score          | 16  | 25  | 44  | 53  | 82  | 101 | 110 | 124 | 132 | 151 |
-        Player: Zeros
+        Player: Zeroes
         Frame          |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  | 10  |
         PinFalls       | 0 0 | 0 0 | 0 0 | 0 0 | 0 0 | 0 0 | 0 0 | 0 0 | 0 0 | 0 0 |
         Score          |  0  |  0  |  0  |  0  |  0  |  0  |  0  |  0  |  0  |  0  |
