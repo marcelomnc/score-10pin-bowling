@@ -55,10 +55,22 @@ public class App {
                         scoresProcessor.processScores(games);
                         LOGGER.log(Level.INFO, "Scores processed for each player game !");
 
-                        LOGGER.log(Level.INFO, "Printing games ...");
-                        IGamesPrinter gamesPrinter = new GamesPrinter();
-                        gamesPrinter.printGames(games);
-                        LOGGER.log(Level.INFO, "Games printed !");
+                        boolean hasValidGames = false;
+                        for (Map.Entry<String, GameDTO> entry : games.entrySet()) {
+                            if (entry.getValue().isValid()) {
+                                hasValidGames = true;
+                                break;
+                            }
+                        }
+
+                        if (hasValidGames) {
+                            LOGGER.log(Level.INFO, "Printing games ...");
+                            IGamesPrinter gamesPrinter = new GamesPrinter();
+                            gamesPrinter.printGames(games);
+                            LOGGER.log(Level.INFO, "Games printed !");
+                        } else {
+                            LOGGER.log(Level.SEVERE, "No valid games to print");
+                        }
                     } else {
                         //Player Chances File has lines with errors
                         LOGGER.log(Level.INFO, "Player chances file has lines with errors, printing errors ...");
@@ -67,13 +79,13 @@ public class App {
                         LOGGER.log(Level.INFO, "Errors printed !");
                     }
                 } catch (IOException e) {
-                    LOGGER.log(Level.SEVERE, "IO exception while parsing player chances file on path: " + args[0] + ". App cannot continue.", e);
+                    LOGGER.log(Level.SEVERE, "IO exception while parsing player chances file on path: " + args[0] + ". App cannot continue", e);
                 }
             } else {
-                LOGGER.log(Level.SEVERE, "File on path: " + args[0] + " does not exists. App cannot continue.");
+                LOGGER.log(Level.SEVERE, "File on path: " + args[0] + " does not exists. App cannot continue");
             }
         } else {
-            LOGGER.log(Level.SEVERE, "Command line args are not valid.");
+            LOGGER.log(Level.SEVERE, "Command line args are not valid");
         }
 
         LOGGER.log(Level.INFO, "Score 10-pin bowling app finished");
