@@ -42,7 +42,7 @@ public class PinFallsProcessor implements IPinFallsProcessor {
                     } else {
                         //This is an error, because if this is the last frame, 3 chances are the maximum only when there is a strike or spare in the first two chances
                         gameDTO.setValid(false);
-                        LOGGER.log(Level.SEVERE, "Game for player: " + gameDTO.getPlayerName() + " invalidated, max chances exceeded");
+                        LOGGER.log(Level.SEVERE, "Game for player: " + gameDTO.getPlayerName() + " invalidated. Max chances exceeded");
                         break;
                     }
                 } else {
@@ -89,7 +89,7 @@ public class PinFallsProcessor implements IPinFallsProcessor {
                 if (gameDTO.getFrameDTOS().size() < 10) {
                     //This is an error, player has not enough chance data on the file
                     gameDTO.setValid(false);
-                    LOGGER.log(Level.SEVERE, "Game for player: " + gameDTO.getPlayerName() + " invalidated, it has not enough chances data");
+                    LOGGER.log(Level.SEVERE, "Game for player: " + gameDTO.getPlayerName() + " invalidated. Not enough chances data");
                 }
             }
         });
