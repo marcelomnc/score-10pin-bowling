@@ -18,7 +18,7 @@ public class PlayerChancesFileParser implements IPlayerChancesFileParser {
     private static final Logger LOGGER = Logger.getLogger(PlayerChancesFileParser.class.getName());
 
     @Override
-    public Map<String, GameDTO> parsePlayerChancesFile(String playerChancesFilePath) {
+    public Map<String, GameDTO> parsePlayerChancesFile(String playerChancesFilePath) throws IOException {
         Map<String, GameDTO> games = new LinkedHashMap<String, GameDTO>();
 
         try (Stream<String> scoreFileLines = Files.lines(Paths.get(playerChancesFilePath))) {
@@ -40,9 +40,6 @@ public class PlayerChancesFileParser implements IPlayerChancesFileParser {
                     LOGGER.log(Level.SEVERE, "Invalid Line: " + scoreFileLine);
                 }
             });
-        } catch (IOException e) {
-            //TODO: Que hacer ?
-            e.printStackTrace();
         }
 
         return games;

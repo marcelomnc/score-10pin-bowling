@@ -13,6 +13,7 @@ import com.marcelomnc.score10pinbowling.validator.CommandLineArgsValidator;
 import com.marcelomnc.score10pinbowling.validator.ICommandLineArgsValidator;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,35 +32,38 @@ public class App {
             LOGGER.log(Level.INFO, "Validating file existence on path: " + args[0] + " ...");
             File f = new File(args[0]);
             if (f.exists()) {
-                LOGGER.log(Level.INFO, "File existence on path: " + args[0] + " validated !");
+                try {
+                    LOGGER.log(Level.INFO, "File existence on path: " + args[0] + " validated !");
 
-                LOGGER.log(Level.INFO, "Processing score lines from file ...");
-                IPlayerChancesFileParser playerChancesFileParser = new PlayerChancesFileParser();
-                Map<String, GameDTO> games = playerChancesFileParser.parsePlayerChancesFile(args[0]);
-                LOGGER.log(Level.INFO, "Score lines from file processed !");
+                    LOGGER.log(Level.INFO, "Parsing player chances file ...");
+                    IPlayerChancesFileParser playerChancesFileParser = new PlayerChancesFileParser();
+                    Map<String, GameDTO> games = playerChancesFileParser.parsePlayerChancesFile(args[0]);
+                    LOGGER.log(Level.INFO, "Player chances file parsed !");
 
-                LOGGER.log(Level.INFO, "Processing pinfalls for each player game ...");
-                IPinFallsProcessor pinFallsProcessor = new PinFallsProcessor();
-                pinFallsProcessor.processPinFalls(games);
-                LOGGER.log(Level.INFO, "Pinfalls processed for each player game !");
+                    LOGGER.log(Level.INFO, "Processing pinFalls for each player game ...");
+                    IPinFallsProcessor pinFallsProcessor = new PinFallsProcessor();
+                    pinFallsProcessor.processPinFalls(games);
+                    LOGGER.log(Level.INFO, "PinFalls processed for each player game !");
 
-                LOGGER.log(Level.INFO, "Processing scores for each player game ...");
-                IScoresProcessor scoresProcessor = new ScoresProcessor();
-                scoresProcessor.processScores(games);
-                LOGGER.log(Level.INFO, "Scores processed for each player game !");
+                    LOGGER.log(Level.INFO, "Processing scores for each player game ...");
+                    IScoresProcessor scoresProcessor = new ScoresProcessor();
+                    scoresProcessor.processScores(games);
+                    LOGGER.log(Level.INFO, "Scores processed for each player game !");
 
-                LOGGER.log(Level.INFO, "Printing games ...");
-                IGamesPrinter gamesPrinter = new GamesPrinter();
-                gamesPrinter.printGames(games);
-                LOGGER.log(Level.INFO, "Games printed !");
-
-                LOGGER.log(Level.INFO, "Score 10-pin bowling app finished");
+                    LOGGER.log(Level.INFO, "Printing games ...");
+                    IGamesPrinter gamesPrinter = new GamesPrinter();
+                    gamesPrinter.printGames(games);
+                    LOGGER.log(Level.INFO, "Games printed !");
+                } catch (IOException e) {
+                    LOGGER.log(Level.SEVERE, "IO exception while parsing player chances file on path: " + args[0] + ". App cannot continue.", e);
+                }
             } else {
-                LOGGER.log(Level.SEVERE, "File on path: " + args[0] + " does not exists.");
+                LOGGER.log(Level.SEVERE, "File on path: " + args[0] + " does not exists. App cannot continue.");
             }
-
         } else {
             LOGGER.log(Level.SEVERE, "Command line args are not valid.");
         }
+
+        LOGGER.log(Level.INFO, "Score 10-pin bowling app finished");
     }
 }
