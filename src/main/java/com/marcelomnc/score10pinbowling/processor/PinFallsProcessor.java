@@ -3,6 +3,7 @@ package com.marcelomnc.score10pinbowling.processor;
 import com.marcelomnc.score10pinbowling.dto.FrameDTO;
 import com.marcelomnc.score10pinbowling.dto.GameDTO;
 import com.marcelomnc.score10pinbowling.dto.PinFallDTO;
+import com.marcelomnc.score10pinbowling.dto.PlayerChanceDTO;
 
 import java.util.Map;
 import java.util.logging.Level;
@@ -14,7 +15,10 @@ public class PinFallsProcessor implements IPinFallsProcessor {
     @Override
     public void processPinFalls(Map<String, GameDTO> games) {
         games.forEach((gameOwner, gameDTO) -> {
-            gameDTO.getPlayerChanceDTOs().forEach(playerChanceDTO -> {
+            PlayerChanceDTO playerChanceDTO = null;
+            for (int i = 0; i < gameDTO.getPlayerChanceDTOs().size(); i++) {
+                playerChanceDTO = gameDTO.getPlayerChanceDTOs().get(i);
+
                 if (gameDTO.getFrameDTOS().size() == 0) {
                     //Add first frame to the game
                     this.addNewFrameToGame(gameDTO, null);
@@ -39,7 +43,7 @@ public class PinFallsProcessor implements IPinFallsProcessor {
                         //This is an error, because if this is the last frame, 3 chances are the maximum only when there is a strike or spare in the first two chances
                         gameDTO.setValid(false);
                         LOGGER.log(Level.SEVERE, "Player: " + gameDTO.getPlayerName() + ", exceeded chances.");
-                        return;
+                        break;
                     }
                 } else {
                     //Frames 1 to 9
@@ -57,7 +61,7 @@ public class PinFallsProcessor implements IPinFallsProcessor {
                             //This is an error, because if this is the second chance, sum must be NOT greater than 10
                             gameDTO.setValid(false);
                             LOGGER.log(Level.SEVERE, "Player: " + gameDTO.getPlayerName() + ", frame: " + (currentFrameIndex + 1) + " exceeded pinfall sum.");
-                            return;
+                            break;
                         }
                     } else {
                         if (currentPinFallIndex == 0) {
@@ -75,11 +79,11 @@ public class PinFallsProcessor implements IPinFallsProcessor {
                             //This is an error, because if this is the second chance, sum will be more than 10
                             gameDTO.setValid(false);
                             LOGGER.log(Level.SEVERE, "Player: " + gameDTO.getPlayerName() + ", frame: " + (currentFrameIndex + 1) + " exceeded pinfall sum.");
-                            return;
+                            break;
                         }
                     }
                 }
-            });
+            }
 
             if (gameDTO.getFrameDTOS().size() < 10) {
                 //This is an error, player has not enough chance data on the file
