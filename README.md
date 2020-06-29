@@ -78,6 +78,10 @@ The **error report** printed by the app would be as follows:
         Line:
         Error: Line has no field separator
         
+        Line Number: 9
+        Line: Marcus    10      12
+        Error: Line has not 2 fields only
+        
         Line Number: 14
         Line: 8999      89
         Error: Line has a value for 'knocked down pins' field that is not between 0 and 10
