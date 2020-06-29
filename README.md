@@ -191,7 +191,7 @@ The app's logger will print a **SEVERE** log level message when any of the above
         Jun 29, 2020 1:39:11 PM com.marcelomnc.score10pinbowling.App main
         SEVERE: File on path: C:\Temp\score10pinb.txt does not exists. App cannot continue.
     
-If an IOException is thrown while parsing the file, a **SEVERE** log level message will be printed out, then the app will exit:
+If an ``IOException`` is thrown while parsing the file, a **SEVERE** log level message will be printed out, then the app will exit:
 
         Jun 29, 2020 1:39:11 PM com.marcelomnc.score10pinbowling.App main
         SEVERE: IO exception while parsing player chances file on path: C:\Temp\score10pinbowling.txt. App cannot continue.
