@@ -56,7 +56,7 @@ The **error report** printed by the app would be as follows:
         
         Line Number: 3
         Line: 67723     ughgg
-        Error: Line has a value for 'knocked down pins' field that is not a number and not an F
+        Error: Line has a value for 'knocked down pins' field that is not a number neither an F
         
         Line Number: 4
         Line:
