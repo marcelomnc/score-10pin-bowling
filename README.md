@@ -9,109 +9,6 @@ The ins for the app are a text file in which every line has two tab-separated fi
 
 In the context of this app, the mentioned line (with the two fields) is called a **Player Chance**. Hence, in this same context, the file that contains all this data is called **Player Chances File**.
 
-## Validations
-
-The app validates every line of the **Player Chances File** with the following rules:
-
-1. Line has no field separator
-2. Line has not 2 fields only
-3. Line has a value for 'knocked down pins' field that is not between 0 and 10
-4. Line has a value for 'knocked down pins' field that is not a number neither an F (F stands for Foul)
-
-If the app finds lines with errors, it will print an **error report** with the following info:
-
-1. Line number
-2. Line
-3. Error message
-
-For a **Player Chances File** with these lines:
-
-        1.dsasd
-        2.
-        3.67723	ughgg
-        4.
-        5.              
-        6.			   
-        7.jdjsdhaak
-        8.
-        9.Marcus	10	12
-        10.Marcus	10
-        11.Marcus	10
-        12.Marcus	10
-        13.Marcus	10
-        14.8999	89
-        
-The **error report** printed by the app would be as follows:
-
-
-        -------------------------PLAYER CHANCES FILE ERRORS------------------------
-        
-        Line Number: 1
-        Line: dsasd
-        Error: Line has no field separator
-        
-        Line Number: 2
-        Line:
-        Error: Line has no field separator
-        
-        Line Number: 3
-        Line: 67723     ughgg
-        Error: Line has a value for 'knocked down pins' field that is not a number neither an F
-        
-        Line Number: 4
-        Line:
-        Error: Line has no field separator
-        
-        Line Number: 5
-        Line:
-        Error: Line has no field separator
-        
-        Line Number: 6
-        Line:
-        Error: Line has not 2 fields only
-        
-        Line Number: 7
-        Line: jdjsdhaak
-        Error: Line has no field separator
-        
-        Line Number: 8
-        Line:
-        Error: Line has no field separator
-        
-        Line Number: 9
-        Line: Marcus    10      12
-        Error: Line has not 2 fields only
-        
-        Line Number: 14
-        Line: 8999      89
-        Error: Line has a value for 'knocked down pins' field that is not between 0 and 10
-        
-        ----------------------------------------------------------------------------
-
-
-**The app only processes/builds/calculates games data when all lines inside Player Chances File has no errors**.
-
-## Game Invalidations
-
-The app would invalidate a player's game if any of the following rules occur:
-
-1. Game exceeds max chances (i.e. All 10 frames of the game have been completed and there is **STILL** chances data to process)
-2. Game has not enough chances data (i.e. Less than 10 frames have been completed and there is **NO** more chances data to process)
-3. Any frame of the game exceeds the maximum pin fall sum value of 10.
-
-The app's logger will print a **SEVERE** level message when any of the above rules occur:
-        
-        Jun 29, 2020 12:39:45 PM com.marcelomnc.score10pinbowling.processor.PinFallsProcessor lambda$processPinFalls$0
-        SEVERE: Game for player: Matt invalidated, max chances exceeded
-        
-        Jun 29, 2020 12:39:45 PM com.marcelomnc.score10pinbowling.processor.PinFallsProcessor lambda$processPinFalls$0
-        SEVERE: Game for player: Jeff invalidated, it has not enough chances data
-        
-        Jun 29, 2020 12:39:45 PM com.marcelomnc.score10pinbowling.processor.PinFallsProcessor lambda$processPinFalls$0
-        SEVERE: Game for player: Marcus invalidated, frame: 3 exceeds pin falls max sum of 10
-
-**The app will calculate/print the scores for valid games only**.
-
 ## Installation
 
 Clone this repository
@@ -278,6 +175,122 @@ The rendered output by the application for the file above would be as follows
     PinFalls       |   X |   X |   X |   X |   X |   X |   X |   X |   X |X X X|
     Score          | 30  | 60  | 90  | 120 | 150 | 180 | 210 | 240 | 270 | 300 |
     ----------------------------------------------------------------------------
+    
+## Validations
+
+The app will validate the following rules before it starts to parse the **Player Chances File**:
+
+1. Only 1 argument is passed from the command line (i.e. The **Player Chances File** path)
+2. A file does exists on the specified path
+
+The app's logger will print a **SEVERE** level message when any of the above rules occur:
+
+    Jun 29, 2020 1:35:44 PM com.marcelomnc.score10pinbowling.App main
+    SEVERE: Command line args are not valid.
+    
+    Jun 29, 2020 1:39:11 PM com.marcelomnc.score10pinbowling.App main
+    SEVERE: File on path: C:\Temp\score10pinb.txt does not exists. App cannot continue.
+
+The app validates every line of the **Player Chances File** with the following rules:
+
+1. Line has no field separator
+2. Line has not 2 fields only
+3. Line has a value for 'knocked down pins' field that is not between 0 and 10
+4. Line has a value for 'knocked down pins' field that is not a number neither an F (F stands for Foul)
+
+If the app finds lines with errors, it will print an **error report** with the following info:
+
+1. Line number
+2. Line
+3. Error message
+
+For a **Player Chances File** with these lines:
+
+        1.dsasd
+        2.
+        3.67723	ughgg
+        4.
+        5.              
+        6.			   
+        7.jdjsdhaak
+        8.
+        9.Marcus	10	12
+        10.Marcus	10
+        11.Marcus	10
+        12.Marcus	10
+        13.Marcus	10
+        14.8999	89
+        
+The **error report** printed by the app would be as follows:
+
+
+        -------------------------PLAYER CHANCES FILE ERRORS------------------------
+        
+        Line Number: 1
+        Line: dsasd
+        Error: Line has no field separator
+        
+        Line Number: 2
+        Line:
+        Error: Line has no field separator
+        
+        Line Number: 3
+        Line: 67723     ughgg
+        Error: Line has a value for 'knocked down pins' field that is not a number neither an F
+        
+        Line Number: 4
+        Line:
+        Error: Line has no field separator
+        
+        Line Number: 5
+        Line:
+        Error: Line has no field separator
+        
+        Line Number: 6
+        Line:
+        Error: Line has not 2 fields only
+        
+        Line Number: 7
+        Line: jdjsdhaak
+        Error: Line has no field separator
+        
+        Line Number: 8
+        Line:
+        Error: Line has no field separator
+        
+        Line Number: 9
+        Line: Marcus    10      12
+        Error: Line has not 2 fields only
+        
+        Line Number: 14
+        Line: 8999      89
+        Error: Line has a value for 'knocked down pins' field that is not between 0 and 10
+        
+        ----------------------------------------------------------------------------
+
+
+**The app only processes/builds/calculates games data when all lines inside Player Chances File has no errors**.
+
+## Game Invalidations
+
+The app would invalidate a player's game if any of the following rules occur:
+
+1. Game exceeds max chances (i.e. All 10 frames of the game have been completed and there is **STILL** chances data to process)
+2. Game has not enough chances data (i.e. Less than 10 frames have been completed and there is **NO** more chances data to process)
+3. Any frame of the game exceeds the maximum pin fall sum value of 10.
+
+The app's logger will print a **SEVERE** level message when any of the above rules occur:
+        
+        Jun 29, 2020 12:39:45 PM com.marcelomnc.score10pinbowling.processor.PinFallsProcessor lambda$processPinFalls$0
+        SEVERE: Game for player: Matt invalidated, max chances exceeded
+        
+        Jun 29, 2020 12:39:45 PM com.marcelomnc.score10pinbowling.processor.PinFallsProcessor lambda$processPinFalls$0
+        SEVERE: Game for player: Jeff invalidated, it has not enough chances data
+        
+        Jun 29, 2020 12:39:45 PM com.marcelomnc.score10pinbowling.processor.PinFallsProcessor lambda$processPinFalls$0
+        SEVERE: Game for player: Marcus invalidated, frame: 3 exceeds pin falls max sum of 10
+
+**The app will calculate/print the scores for valid games only**.
 
 ## Links
 
