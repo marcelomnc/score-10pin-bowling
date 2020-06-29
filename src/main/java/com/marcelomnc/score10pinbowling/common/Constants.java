@@ -21,7 +21,7 @@ public class Constants {
     public static final String PCFL_VALIDATOR__NO_FIELD_SEPARATOR_MESSAGE = "Line has no field separator";
     public static final String PCFL_VALIDATOR__NO_2_FIELDS_ONLY_MESSAGE = "Line has not 2 fields only";
     public static final String PCFL_VALIDATOR__FIELD_VALUE_0_10_MESSAGE = "Line has a value for 'knocked down pins' field that is not between 0 and 10";
-    public static final String PCFL_VALIDATOR__FIELD_VALUE_NOT_NUMBER_FOUL_MESSAGE = "Line has a value for 'knocked down pins' field that is not a number and not an F";
+    public static final String PCFL_VALIDATOR__FIELD_VALUE_NOT_NUMBER_FOUL_MESSAGE = "Line has a value for 'knocked down pins' field that is not a number neither an F";
 
     public static final String PCFLEP_PRINT__ERRORS_TITLE = "PLAYER CHANCES FILE ERRORS";
     public static final String PCFLEP_PRINT__ERRORS_LINE_LABEL = "Line: ";
