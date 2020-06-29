@@ -54,6 +54,7 @@ public class PinFallsProcessor implements IPinFallsProcessor {
                             //Third (extra) chance only allowed when there is a strike nn the first chance, or a spare in the first two chances
                             LOGGER.log(Level.SEVERE, "Game for player: " + gameDTO.getPlayerName() + ", invalidated. Max chances exceeded");
                         }
+                        break;
                     }
                 } else {
                     //Frames 1 to 9
