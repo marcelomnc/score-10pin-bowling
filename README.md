@@ -34,7 +34,7 @@ For a **Player Chances File** with these lines:
         6.			   
         7.jdjsdhaak
         8.
-        9.Marcus	10
+        9.Marcus	10	12
         10.Marcus	10
         11.Marcus	10
         12.Marcus	10
