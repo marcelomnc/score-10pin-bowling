@@ -60,7 +60,7 @@ public class PinFallsProcessor implements IPinFallsProcessor {
                         } else {
                             //This is an error, because if this is the second chance, sum must be NOT greater than 10
                             gameDTO.setValid(false);
-                            LOGGER.log(Level.SEVERE, "Game for player: " + gameDTO.getPlayerName() + " invalidated, frame: " + (currentFrameIndex + 1) + " exceeds pin falls max sum of 10");
+                            LOGGER.log(Level.SEVERE, "Game for player: " + gameDTO.getPlayerName() + " invalidated. Frame " + (currentFrameIndex + 1) + ": exceeds pin falls max sum of 10");
                             break;
                         }
                     } else {
@@ -78,7 +78,7 @@ public class PinFallsProcessor implements IPinFallsProcessor {
                         } else {
                             //This is an error, because if this is the second chance, sum will be more than 10
                             gameDTO.setValid(false);
-                            LOGGER.log(Level.SEVERE, "Game for player: " + gameDTO.getPlayerName() + " invalidated, frame: " + (currentFrameIndex + 1) + " exceeds pin falls max sum of 10");
+                            LOGGER.log(Level.SEVERE, "Game for player: " + gameDTO.getPlayerName() + " invalidated. Frame " + (currentFrameIndex + 1) + ": exceeds pin falls max sum of 10");
                             break;
                         }
                     }
