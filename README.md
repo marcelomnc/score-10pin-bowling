@@ -1,6 +1,6 @@
 # score-10pin-bowling
 
-This is a command line app that parses/processes/builds/calculates all the data (**pinFalls** and **scores**) for all the 10 frames in a bowling game played by one or more players.
+This is a command line app that parses/processes/builds/calculates all the data (**pin falls** and **scores**) for all the 10 frames in a bowling game played by one or more players.
 
 The ins for the app are a text file in which every line has two tab-separated fields:
 
@@ -17,6 +17,55 @@ The app validates every line of the **Player Chances File** with the following r
 2. Line has not 2 fields only
 3. Line has a value for 'knocked down pins' field that is not between 0 and 10
 4. Line has a value for 'knocked down pins' field that is not a number and not an F (F stands for Foul)
+
+If the app finds lines with errors, it will print an error report with the following info:
+
+1. Line number
+2. Line
+3. Error message
+
+This is an example of such report:
+
+        -------------------------PLAYER CHANCES FILE ERRORS------------------------
+        
+        Line Number: 1
+        Line: dsasd
+        Error: Line has no field separator
+        
+        Line Number: 2
+        Line:
+        Error: Line has no field separator
+        
+        Line Number: 3
+        Line: 67723     ughgg
+        Error: Line has a value for 'knocked down pins' field that is not a number and not an F
+        
+        Line Number: 4
+        Line:
+        Error: Line has no field separator
+        
+        Line Number: 5
+        Line:
+        Error: Line has no field separator
+        
+        Line Number: 6
+        Line:
+        Error: Line has not 2 fields only
+        
+        Line Number: 7
+        Line: jdjsdhaak
+        Error: Line has no field separator
+        
+        Line Number: 8
+        Line:
+        Error: Line has no field separator
+        
+        Line Number: 14
+        Line: 8999      89
+        Error: Line has a value for 'knocked down pins' field that is not between 0 and 10
+        
+        ----------------------------------------------------------------------------
+
 
 **The app only processes/builds/calculates games data when all lines inside Player Chances File has no errors**.
 
