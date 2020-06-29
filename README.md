@@ -18,7 +18,7 @@ The app validates every line of the **Player Chances File** with the following r
 3. Line has a value for 'knocked down pins' field that is not between 0 and 10
 4. Line has a value for 'knocked down pins' field that is not a number and not an F (F stands for Foul)
 
-The app only processes/builds/calculates games data when **ALL** lines inside **Player Chances File** has no errors.
+**The app only processes/builds/calculates games data when all lines inside Player Chances File has no errors**.
 
 ## Game Invalidations
 
