@@ -99,6 +99,17 @@ The app would invalidate a player's game if any of the following rules occur:
 2. Game has not enough chances data (i.e. Less than 10 frames have been completed and there is **NO** more chances data to process)
 3. Any frame of the game exceeds the maximum pin fall sum value of 10.
 
+The app's logger will print a **SEVERE** level message when any of the above rules occur:
+        
+        Jun 29, 2020 12:39:45 PM com.marcelomnc.score10pinbowling.processor.PinFallsProcessor lambda$processPinFalls$0
+        SEVERE: Game for player: Matt invalidated, max chances exceeded
+        
+        Jun 29, 2020 12:39:45 PM com.marcelomnc.score10pinbowling.processor.PinFallsProcessor lambda$processPinFalls$0
+        SEVERE: Game for player: Jeff invalidated, it has not enough chances data
+        
+        Jun 29, 2020 12:39:45 PM com.marcelomnc.score10pinbowling.processor.PinFallsProcessor lambda$processPinFalls$0
+        SEVERE: Game for player: Marcus invalidated, frame: 3 exceeds pin falls max sum of 10
+
 **The app will calculate/print the scores for valid games only**.
 
 ## Installation
