@@ -43,14 +43,15 @@ public class PinFallsProcessor implements IPinFallsProcessor {
                             &&
                             ((currentFrameDTO.getPinFalls().get(0).getValue() == 10)
                                     || (currentFrameDTO.getPinFalls().get(0).getValue() + currentFrameDTO.getPinFalls().get(1).getValue()) == 10)) {
-                        //Third (extra) chance only allowed when there is a strike in the first chance, or a spare in the first two chances
+                        //Third (extra) chance only allowed when there is a strike on the first chance, or a spare in the first two chances
                         currentFrameDTO.getPinFalls().add(new PinFallDTO(playerChanceDTO.isFoul(), playerChanceDTO.getKnockedDownPins()));
                     } else {
                         gameDTO.setValid(false);
                         if (currentPinFallIndex == 1) {
+                            //This is an error, because if this is the second chance, pin fall sum must be NOT greater than 10
                             LOGGER.log(Level.SEVERE, "Game for player: " + gameDTO.getPlayerName() + ", invalidated. Frame " + (currentFrameIndex + 1) + ": exceeds pin falls max sum of 10");
                         } else {
-                            //This is an error, because third (extra) chance is only allowed when there is a strike in the first chance, or a spare in the first two chances
+                            //Third (extra) chance only allowed when there is a strike nn the first chance, or a spare in the first two chances
                             LOGGER.log(Level.SEVERE, "Game for player: " + gameDTO.getPlayerName() + ", invalidated. Max chances exceeded");
                         }
                     }
@@ -67,7 +68,7 @@ public class PinFallsProcessor implements IPinFallsProcessor {
                             //Second chance, chance data is meant for the next frame, because the first chance was a strike
                             this.addNewFrameToGame(gameDTO, new PinFallDTO(playerChanceDTO.isFoul(), playerChanceDTO.getKnockedDownPins()));
                         } else {
-                            //This is an error, because if this is the second chance, sum must be NOT greater than 10
+                            //This is an error, because if this is the second chance, pin fall sum must be NOT greater than 10
                             gameDTO.setValid(false);
                             LOGGER.log(Level.SEVERE, "Game for player: " + gameDTO.getPlayerName() + ", invalidated. Frame " + (currentFrameIndex + 1) + ": exceeds pin falls max sum of 10");
                             break;
@@ -85,7 +86,7 @@ public class PinFallsProcessor implements IPinFallsProcessor {
                             //The chance data is meant for the next frame
                             this.addNewFrameToGame(gameDTO, new PinFallDTO(playerChanceDTO.isFoul(), playerChanceDTO.getKnockedDownPins()));
                         } else {
-                            //This is an error, because if this is the second chance, sum will be more than 10
+                            //This is an error, because if this is the second chance, pin fall sum must be NOT greater than 10
                             gameDTO.setValid(false);
                             LOGGER.log(Level.SEVERE, "Game for player: " + gameDTO.getPlayerName() + ", invalidated. Frame " + (currentFrameIndex + 1) + ": exceeds pin falls max sum of 10");
                             break;
@@ -108,7 +109,7 @@ public class PinFallsProcessor implements IPinFallsProcessor {
                             ((lastFrame.getPinFalls().get(0).getValue() == 10)
                                     || ((lastFrame.getPinFalls().get(0).getValue() == 10) && (lastFrame.getPinFalls().get(1).getValue() == 10))
                                     || ((lastFrame.getPinFalls().get(0).getValue() + lastFrame.getPinFalls().get(1).getValue()) == 10))) {
-                        //Extra chance on last frame is missing
+                        //Third (extra) chance on last frame is missing
                         invalidateGame = true;
                     }
                 }
