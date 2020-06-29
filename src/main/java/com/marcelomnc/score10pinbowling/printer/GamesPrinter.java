@@ -12,7 +12,7 @@ public class GamesPrinter implements IGamesPrinter {
 
     @Override
     public void printGames(Map<String, GameDTO> games) {
-        System.out.println("\n" + "-----------------------------------" + Constants.PRINT__GAMES_LABEL + "------------------------------------");
+        System.out.println("\n" + "-----------------------------------" + Constants.PRINT__GAMES_TITLE + "------------------------------------");
         games.forEach((gameOwner, gameDTO) -> {
             if (gameDTO.isValid()) {
                 //Only print valid games
