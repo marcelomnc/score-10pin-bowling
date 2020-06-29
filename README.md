@@ -22,7 +22,7 @@ The app only processes/builds/calculates games data when **ALL** lines inside **
 
 ## Game Invalidations
 
-The app can invalidate a game if any of the following rules occur:
+The app would invalidate a game if any of the following rules occur:
 
 1. Game exceeds max chances (i.e. All 10 frames of the game have been completed and there is **STILL** chances data to process)
 2. Game has not enough chances data (i.e. Less than 10 frames have been completed and there is **NO** more chances data to process)
