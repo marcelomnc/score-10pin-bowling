@@ -35,7 +35,7 @@ Maven will create a folder with the name **target**. Cd into it
 cd target
 ```
 
-Inside it you will find this application's executable jar file
+Inside it you will find the app's executable jar file
 
 ```bash
 ls -l
@@ -53,7 +53,7 @@ drwxr-xr-x 1 owner 197609     0 Jun 25 10:21 test-classes/
 
 ## Running
 
-To run this application you will need a text file (**Player Chances File**) with all the data that must be parsed and processed. You can execute it passing the mentioned file path as the first and unique argument like:
+To run this app you will need a text file (**Player Chances File**) with all the data that must be parsed and processed. You can execute it passing the mentioned file path as the first and unique argument like:
 
 ```bash
 java -jar score-10pin-bowling-1.0-SNAPSHOT.jar [PATH_TO_YOUR_FILE]
@@ -151,7 +151,7 @@ This is a sample data for the **Player Chances File**
     Perfect	10
     Perfect	10
     
-The printed output by the application for the file above would be as follows
+The printed output by the app for the file above would be as follows
 
     -----------------------------------GAMES------------------------------------
     Player: Jeff
