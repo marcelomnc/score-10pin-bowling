@@ -9,6 +9,13 @@ The ins for the app are a text file in which every line has two tab-separated fi
 
 In the context of this app, the mentioned line (with the two fields) is called a **Player Chance**. Hence, in this same context, the file that contains all this data is called **Player Chances File**.
 
+## Requirements
+
+This app requires the following tools:
+
+1. Java 8
+2. Apache Maven 3.6.3+ 
+
 ## Installation
 
 Clone this repository
