@@ -24,7 +24,25 @@ If the app finds lines with errors, it will print an error report with the follo
 2. Line
 3. Error message
 
-This is an example of such report:
+For a **Player Chances File** with these lines:
+
+        1.dsasd
+        2.
+        3.67723	ughgg
+        4.
+        5.              
+        6.			   
+        7.jdjsdhaak
+        8.
+        9.Marcus	10
+        10.Marcus	10
+        11.Marcus	10
+        12.Marcus	10
+        13.Marcus	10
+        14.8999	89
+        
+The **error report** printed by the app would be as follows:
+
 
         -------------------------PLAYER CHANCES FILE ERRORS------------------------
         
