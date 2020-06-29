@@ -285,10 +285,10 @@ The app's logger will print a **SEVERE** level message when any of the above rul
         SEVERE: Game for player: Matt, invalidated. Max chances exceeded
         
         Jun 29, 2020 12:39:45 PM com.marcelomnc.score10pinbowling.processor.PinFallsProcessor lambda$processPinFalls$0
-        SEVERE: Game for player: Jeff invalidated. Not enough chances data
+        SEVERE: Game for player: Jeff, invalidated. Not enough chances data
         
         Jun 29, 2020 12:39:45 PM com.marcelomnc.score10pinbowling.processor.PinFallsProcessor lambda$processPinFalls$0
-        SEVERE: Game for player: Marcus invalidated. Frame 3: exceeds pin falls max sum of 10
+        SEVERE: Game for player: Marcus, invalidated. Frame 3: exceeds pin falls max sum of 10
 
 **The app will calculate/print the scores for valid games only**.
 
