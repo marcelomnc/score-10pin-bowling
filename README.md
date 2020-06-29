@@ -18,31 +18,31 @@ This app requires the following tools:
 
 ## Installation
 
-Clone this repository
+Clone this repository:
 
 ```bash
 git clone https://github.com/marcelomnc/score-10pin-bowling
 ```
 
-Cd into the cloned repository folder
+Cd into the cloned repository folder:
 
 ```bash
 cd score-10pin-bowling
 ```
 
-Build the project using maven
+Build the project using **maven**:
 
 ```bash
 mvn install
 ```
 
-Maven will create a folder with the name **target**. Cd into it
+Maven will create a folder with the name **target**. Cd into it:
 
 ```bash
 cd target
 ```
 
-Inside it you will find the app's executable jar file
+Inside it you will find the app's executable jar file:
 
 ```bash
 ls -l
