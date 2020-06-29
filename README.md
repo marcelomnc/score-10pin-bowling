@@ -297,6 +297,12 @@ The app's logger will print a **SEVERE** level message when any of the above rul
 
 **The app will calculate/print the scores for valid games only**.
 
+If **no valid** games are present, a **SEVERE** log message will be printed, then the app will exit:
+
+        Jun 29, 2020 2:02:40 PM com.marcelomnc.score10pinbowling.App main
+        SEVERE: No valid games to print.
+        
+
 ## Links
 
 Rules for scoring a bowling game can be found on youtube **[here](https://www.youtube.com/watch?v=aBe71sD8o8c)** and **[here](https://www.youtube.com/watch?v=wY-fT2Gxa5s)**.
