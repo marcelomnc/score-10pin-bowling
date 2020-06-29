@@ -1,5 +1,7 @@
 package com.marcelomnc.score10pinbowling.validator;
 
+import com.marcelomnc.score10pinbowling.dto.PlayerChancesFileLineError;
+
 public interface IPlayerChancesFileLineValidator {
-    boolean isValid(String playerChancesFileLine);
+    PlayerChancesFileLineError validate(String playerChancesFileLine, int playerChancesFileLineNumber);
 }

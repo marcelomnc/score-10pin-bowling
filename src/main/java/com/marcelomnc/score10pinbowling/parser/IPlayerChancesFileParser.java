@@ -1,10 +1,9 @@
 package com.marcelomnc.score10pinbowling.parser;
 
-import com.marcelomnc.score10pinbowling.dto.GameDTO;
+import com.marcelomnc.score10pinbowling.dto.PlayerChancesFileParserResult;
 
 import java.io.IOException;
-import java.util.Map;
 
 public interface IPlayerChancesFileParser {
-    Map<String, GameDTO> parsePlayerChancesFile(String playerChancesFilePath) throws IOException;
+    PlayerChancesFileParserResult parsePlayerChancesFile(String playerChancesFilePath) throws IOException;
 }

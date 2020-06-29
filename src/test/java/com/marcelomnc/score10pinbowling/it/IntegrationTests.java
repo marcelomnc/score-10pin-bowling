@@ -2,6 +2,7 @@ package com.marcelomnc.score10pinbowling.it;
 
 import com.marcelomnc.score10pinbowling.common.AssertionsHelper;
 import com.marcelomnc.score10pinbowling.dto.GameDTO;
+import com.marcelomnc.score10pinbowling.dto.PlayerChancesFileParserResult;
 import com.marcelomnc.score10pinbowling.parser.IPlayerChancesFileParser;
 import com.marcelomnc.score10pinbowling.parser.PlayerChancesFileParser;
 import com.marcelomnc.score10pinbowling.processor.IPinFallsProcessor;
@@ -11,6 +12,7 @@ import com.marcelomnc.score10pinbowling.processor.ScoresProcessor;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.Map;
 
 import static org.junit.Assert.assertFalse;
@@ -20,10 +22,11 @@ public class IntegrationTests {
     private static Map<String, GameDTO> games;
 
     @BeforeClass
-    public static void setUp() {
+    public static void setUp() throws IOException {
         //Read and parse the player chances file
         IPlayerChancesFileParser playerChancesFileParser = new PlayerChancesFileParser();
-        Map<String, GameDTO> games = playerChancesFileParser.parsePlayerChancesFile(PLAYER_CHANCES_INTEGRATION_TESTS_FILE_PATH);
+        PlayerChancesFileParserResult result = playerChancesFileParser.parsePlayerChancesFile(PLAYER_CHANCES_INTEGRATION_TESTS_FILE_PATH);
+        Map<String, GameDTO> games = result.getGames();
         //Process pinFalls
         IPinFallsProcessor pinFallsProcessor = new PinFallsProcessor();
         pinFallsProcessor.processPinFalls(games);

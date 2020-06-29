@@ -1,10 +1,13 @@
 package com.marcelomnc.score10pinbowling;
 
 import com.marcelomnc.score10pinbowling.dto.GameDTO;
+import com.marcelomnc.score10pinbowling.dto.PlayerChancesFileParserResult;
 import com.marcelomnc.score10pinbowling.parser.IPlayerChancesFileParser;
 import com.marcelomnc.score10pinbowling.parser.PlayerChancesFileParser;
 import com.marcelomnc.score10pinbowling.printer.GamesPrinter;
 import com.marcelomnc.score10pinbowling.printer.IGamesPrinter;
+import com.marcelomnc.score10pinbowling.printer.IPlayerChancesFileLineErrorsPrinter;
+import com.marcelomnc.score10pinbowling.printer.PlayerChancesFileLineErrorsPrinter;
 import com.marcelomnc.score10pinbowling.processor.IPinFallsProcessor;
 import com.marcelomnc.score10pinbowling.processor.IScoresProcessor;
 import com.marcelomnc.score10pinbowling.processor.PinFallsProcessor;
@@ -37,23 +40,32 @@ public class App {
 
                     LOGGER.log(Level.INFO, "Parsing player chances file ...");
                     IPlayerChancesFileParser playerChancesFileParser = new PlayerChancesFileParser();
-                    Map<String, GameDTO> games = playerChancesFileParser.parsePlayerChancesFile(args[0]);
-                    LOGGER.log(Level.INFO, "Player chances file parsed !");
+                    PlayerChancesFileParserResult result = playerChancesFileParser.parsePlayerChancesFile(args[0]);
+                    if (result.getErrors().isEmpty()) {
+                        LOGGER.log(Level.INFO, "Player chances file parsed !");
+                        Map<String, GameDTO> games = result.getGames();
 
-                    LOGGER.log(Level.INFO, "Processing pinFalls for each player game ...");
-                    IPinFallsProcessor pinFallsProcessor = new PinFallsProcessor();
-                    pinFallsProcessor.processPinFalls(games);
-                    LOGGER.log(Level.INFO, "PinFalls processed for each player game !");
+                        LOGGER.log(Level.INFO, "Processing pinFalls for each player game ...");
+                        IPinFallsProcessor pinFallsProcessor = new PinFallsProcessor();
+                        pinFallsProcessor.processPinFalls(games);
+                        LOGGER.log(Level.INFO, "PinFalls processed for each player game !");
 
-                    LOGGER.log(Level.INFO, "Processing scores for each player game ...");
-                    IScoresProcessor scoresProcessor = new ScoresProcessor();
-                    scoresProcessor.processScores(games);
-                    LOGGER.log(Level.INFO, "Scores processed for each player game !");
+                        LOGGER.log(Level.INFO, "Processing scores for each player game ...");
+                        IScoresProcessor scoresProcessor = new ScoresProcessor();
+                        scoresProcessor.processScores(games);
+                        LOGGER.log(Level.INFO, "Scores processed for each player game !");
 
-                    LOGGER.log(Level.INFO, "Printing games ...");
-                    IGamesPrinter gamesPrinter = new GamesPrinter();
-                    gamesPrinter.printGames(games);
-                    LOGGER.log(Level.INFO, "Games printed !");
+                        LOGGER.log(Level.INFO, "Printing games ...");
+                        IGamesPrinter gamesPrinter = new GamesPrinter();
+                        gamesPrinter.printGames(games);
+                        LOGGER.log(Level.INFO, "Games printed !");
+                    } else {
+                        //Player Chances File has lines with errors
+                        LOGGER.log(Level.INFO, "Player chances file has lines with errors, printing errors ...");
+                        IPlayerChancesFileLineErrorsPrinter playerChancesFileLineErrorsPrinter = new PlayerChancesFileLineErrorsPrinter();
+                        playerChancesFileLineErrorsPrinter.printErrors(result.getErrors());
+                        LOGGER.log(Level.INFO, "Errors printed !");
+                    }
                 } catch (IOException e) {
                     LOGGER.log(Level.SEVERE, "IO exception while parsing player chances file on path: " + args[0] + ". App cannot continue.", e);
                 }

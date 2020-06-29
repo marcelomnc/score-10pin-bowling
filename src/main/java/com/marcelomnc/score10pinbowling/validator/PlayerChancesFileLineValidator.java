@@ -1,37 +1,34 @@
 package com.marcelomnc.score10pinbowling.validator;
 
 import com.marcelomnc.score10pinbowling.common.Constants;
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import com.marcelomnc.score10pinbowling.dto.PlayerChancesFileLineError;
 
 public class PlayerChancesFileLineValidator implements IPlayerChancesFileLineValidator {
-    private static final Logger LOGGER = Logger.getLogger(PlayerChancesFileLineValidator.class.getName());
+
+    private PlayerChancesFileLineError build(String playerChancesFileLine, int playerChancesFileLineNumber, String errorMessage) {
+        return new PlayerChancesFileLineError(playerChancesFileLine, playerChancesFileLineNumber, errorMessage);
+    }
 
     @Override
-    public boolean isValid(String playerChancesFileLine) {
-        boolean toRet = true;
+    public PlayerChancesFileLineError validate(String playerChancesFileLine, int playerChancesFileLineNumber) {
+        PlayerChancesFileLineError toRet = null;
 
         if (playerChancesFileLine.indexOf(Constants.PLAYER_CHANCES_FILE__FIELD_SEPARATOR) == -1) {
-            toRet = false;
-            LOGGER.log(Level.SEVERE, "Line has no tab separator");
+            toRet = build(playerChancesFileLine, playerChancesFileLineNumber, Constants.PCFL_VALIDATOR__NO_FIELD_SEPARATOR_MESSAGE);
         } else {
             String[] fields = playerChancesFileLine.split(Constants.PLAYER_CHANCES_FILE__FIELD_SEPARATOR);
             if (fields.length != 2) {
-                toRet = false;
-                LOGGER.log(Level.SEVERE, "Line has no 2 fields only");
+                toRet = build(playerChancesFileLine, playerChancesFileLineNumber, Constants.PCFL_VALIDATOR__NO_2_FIELDS_ONLY_MESSAGE);
             } else {
                 if (!fields[1].equals(Constants.PLAYER_CHANCES_FILE__FOUL_INDICATOR)) {
-                    int score = 0;
+                    int knockedDownPins = 0;
                     try {
-                        score = Integer.parseInt(fields[1]);
-                        if (score < 0 || score > 10) {
-                            toRet = false;
-                            LOGGER.log(Level.SEVERE, "Line has a score that is not between 0 and 10");
+                        knockedDownPins = Integer.parseInt(fields[1]);
+                        if (knockedDownPins < 0 || knockedDownPins > 10) {
+                            toRet = build(playerChancesFileLine, playerChancesFileLineNumber, Constants.PCFL_VALIDATOR__FIELD_VALUE_0_10_MESSAGE);
                         }
                     } catch (NumberFormatException e) {
-                        toRet = false;
-                        LOGGER.log(Level.SEVERE, "Line has a score that is not a number and not an F");
+                        toRet = build(playerChancesFileLine, playerChancesFileLineNumber, Constants.PCFL_VALIDATOR__FIELD_VALUE_NOT_NUMBER_FOUL_MESSAGE);
                     }
                 }
             }
