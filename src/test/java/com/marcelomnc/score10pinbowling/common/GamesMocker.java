@@ -36,7 +36,7 @@ public class GamesMocker {
         //Add more than enough chances to complete 10 frames
         //Perfect game is 12 chances total, no more
         PlayerChanceDTO playerChanceDTO = null;
-        for (int i = 0; i < 13; i++) {
+        for (int i = 0; i < 20; i++) {
             playerChanceDTO = new PlayerChanceDTO();
             playerChanceDTO.setPlayerName(playerName);
             playerChanceDTO.setKnockedDownPins(10);
