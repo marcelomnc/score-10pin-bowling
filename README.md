@@ -63,118 +63,118 @@ java -jar score-10pin-bowling-1.0-SNAPSHOT.jar [PATH_TO_YOUR_FILE]
 
 This is a sample data for the **Player Chances File**
 
-    Jeff	10
-    John	3
-    John	7
-    Jeff	7
-    Jeff	3
-    John	6
-    John	3
-    Jeff	9
-    Jeff	0
-    John	10
-    Jeff	10
-    John	8
-    John	1
-    Jeff	0
-    Jeff	8
-    John	10
-    Jeff	8
-    Jeff	2
-    John	10
-    Jeff	F
-    Jeff	6
-    John	9
-    John	0
-    Jeff	10
-    John	7
-    John	3
-    Jeff	10
-    John	4
-    John	4
-    Jeff	10
-    Jeff	8
-    Jeff	1
-    John	10
-    John	9
-    John	0
-    Zeros	0
-    Zeros	0
-    Zeros	0
-    Zeros	0
-    Zeros	0
-    Zeros	0
-    Zeros	0
-    Zeros	0
-    Zeros	0
-    Zeros	0
-    Zeros	0
-    Zeros	0
-    Zeros	0
-    Zeros	0
-    Zeros	0
-    Zeros	0
-    Zeros	0
-    Zeros	0
-    Zeros	0
-    Zeros	0
-    Fouls	F
-    Fouls	F
-    Fouls	F
-    Fouls	F
-    Fouls	F
-    Fouls	F
-    Fouls	F
-    Fouls	F
-    Fouls	F
-    Fouls	F
-    Fouls	F
-    Fouls	F
-    Fouls	F
-    Fouls	F
-    Fouls	F
-    Fouls	F
-    Fouls	F
-    Fouls	F
-    Fouls	F
-    Fouls	F
-    Perfect	10
-    Perfect	10
-    Perfect	10
-    Perfect	10
-    Perfect	10
-    Perfect	10
-    Perfect	10
-    Perfect	10
-    Perfect	10
-    Perfect	10
-    Perfect	10
-    Perfect	10
+        Jeff	10
+        John	3
+        John	7
+        Jeff	7
+        Jeff	3
+        John	6
+        John	3
+        Jeff	9
+        Jeff	0
+        John	10
+        Jeff	10
+        John	8
+        John	1
+        Jeff	0
+        Jeff	8
+        John	10
+        Jeff	8
+        Jeff	2
+        John	10
+        Jeff	F
+        Jeff	6
+        John	9
+        John	0
+        Jeff	10
+        John	7
+        John	3
+        Jeff	10
+        John	4
+        John	4
+        Jeff	10
+        Jeff	8
+        Jeff	1
+        John	10
+        John	9
+        John	0
+        Zeros	0
+        Zeros	0
+        Zeros	0
+        Zeros	0
+        Zeros	0
+        Zeros	0
+        Zeros	0
+        Zeros	0
+        Zeros	0
+        Zeros	0
+        Zeros	0
+        Zeros	0
+        Zeros	0
+        Zeros	0
+        Zeros	0
+        Zeros	0
+        Zeros	0
+        Zeros	0
+        Zeros	0
+        Zeros	0
+        Fouls	F
+        Fouls	F
+        Fouls	F
+        Fouls	F
+        Fouls	F
+        Fouls	F
+        Fouls	F
+        Fouls	F
+        Fouls	F
+        Fouls	F
+        Fouls	F
+        Fouls	F
+        Fouls	F
+        Fouls	F
+        Fouls	F
+        Fouls	F
+        Fouls	F
+        Fouls	F
+        Fouls	F
+        Fouls	F
+        Perfect	10
+        Perfect	10
+        Perfect	10
+        Perfect	10
+        Perfect	10
+        Perfect	10
+        Perfect	10
+        Perfect	10
+        Perfect	10
+        Perfect	10
+        Perfect	10
+        Perfect	10
     
 The printed output by the app for the file above would be as follows:
 
-    -----------------------------------GAMES------------------------------------
-    Player: Jeff
-    Frame          |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  | 10  |
-    PinFalls       |   X | 7 / | 9 0 |   X | 0 8 | 8 / | F 6 |   X |   X |X 8 1|
-    Score          | 20  | 39  | 48  | 66  | 74  | 84  | 90  | 120 | 148 | 167 |
-    Player: John
-    Frame          |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  | 10  |
-    PinFalls       | 3 / | 6 3 |   X | 8 1 |   X |   X | 9 0 | 7 / | 4 4 |X 9 0|
-    Score          | 16  | 25  | 44  | 53  | 82  | 101 | 110 | 124 | 132 | 151 |
-    Player: Zeros
-    Frame          |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  | 10  |
-    PinFalls       | 0 0 | 0 0 | 0 0 | 0 0 | 0 0 | 0 0 | 0 0 | 0 0 | 0 0 | 0 0 |
-    Score          |  0  |  0  |  0  |  0  |  0  |  0  |  0  |  0  |  0  |  0  |
-    Player: Fouls
-    Frame          |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  | 10  |
-    PinFalls       | F F | F F | F F | F F | F F | F F | F F | F F | F F | F F |
-    Score          |  0  |  0  |  0  |  0  |  0  |  0  |  0  |  0  |  0  |  0  |
-    Player: Perfect
-    Frame          |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  | 10  |
-    PinFalls       |   X |   X |   X |   X |   X |   X |   X |   X |   X |X X X|
-    Score          | 30  | 60  | 90  | 120 | 150 | 180 | 210 | 240 | 270 | 300 |
-    ----------------------------------------------------------------------------
+        -----------------------------------GAMES------------------------------------
+        Player: Jeff
+        Frame          |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  | 10  |
+        PinFalls       |   X | 7 / | 9 0 |   X | 0 8 | 8 / | F 6 |   X |   X |X 8 1|
+        Score          | 20  | 39  | 48  | 66  | 74  | 84  | 90  | 120 | 148 | 167 |
+        Player: John
+        Frame          |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  | 10  |
+        PinFalls       | 3 / | 6 3 |   X | 8 1 |   X |   X | 9 0 | 7 / | 4 4 |X 9 0|
+        Score          | 16  | 25  | 44  | 53  | 82  | 101 | 110 | 124 | 132 | 151 |
+        Player: Zeros
+        Frame          |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  | 10  |
+        PinFalls       | 0 0 | 0 0 | 0 0 | 0 0 | 0 0 | 0 0 | 0 0 | 0 0 | 0 0 | 0 0 |
+        Score          |  0  |  0  |  0  |  0  |  0  |  0  |  0  |  0  |  0  |  0  |
+        Player: Fouls
+        Frame          |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  | 10  |
+        PinFalls       | F F | F F | F F | F F | F F | F F | F F | F F | F F | F F |
+        Score          |  0  |  0  |  0  |  0  |  0  |  0  |  0  |  0  |  0  |  0  |
+        Player: Perfect
+        Frame          |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  | 10  |
+        PinFalls       |   X |   X |   X |   X |   X |   X |   X |   X |   X |X X X|
+        Score          | 30  | 60  | 90  | 120 | 150 | 180 | 210 | 240 | 270 | 300 |
+        ----------------------------------------------------------------------------
     
 ## Validations
 
@@ -185,11 +185,16 @@ The app will validate the following rules before it starts to parse the **Player
 
 The app's logger will print a **SEVERE** level message when any of the above rules occur:
 
-    Jun 29, 2020 1:35:44 PM com.marcelomnc.score10pinbowling.App main
-    SEVERE: Command line args are not valid.
+        Jun 29, 2020 1:35:44 PM com.marcelomnc.score10pinbowling.App main
+        SEVERE: Command line args are not valid.
+        
+        Jun 29, 2020 1:39:11 PM com.marcelomnc.score10pinbowling.App main
+        SEVERE: File on path: C:\Temp\score10pinb.txt does not exists. App cannot continue.
     
-    Jun 29, 2020 1:39:11 PM com.marcelomnc.score10pinbowling.App main
-    SEVERE: File on path: C:\Temp\score10pinb.txt does not exists. App cannot continue.
+If an IOException is thrown while parsing the file, a **SEVERE** log level message will be printed out, then the app will exit:
+
+        Jun 29, 2020 1:39:11 PM com.marcelomnc.score10pinbowling.App main
+        SEVERE: IO exception while parsing player chances file on path: C:\Temp\score10pinbowling.txt. App cannot continue.
 
 The app validates every line of the **Player Chances File** with the following rules:
 
