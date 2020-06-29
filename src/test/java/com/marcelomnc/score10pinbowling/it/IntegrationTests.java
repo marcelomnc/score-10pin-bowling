@@ -33,8 +33,6 @@ public class IntegrationTests {
         IntegrationTests.games = games;
     }
 
-    //TODO: Tests for pinfalls
-
     @Test
     public void lackOfChancesGameShouldBeInvalid() {
         GameDTO gameDTO = games.get("Lack Of Chances");
