@@ -10,7 +10,7 @@ import org.junit.Test;
  * because it has package level access, is a class not meant to be used publicly
  */
 public class PlayerChancesFileLineParserTest {
-    private PlayerChancesFileLineParser parser;
+    private final PlayerChancesFileLineParser parser;
 
     public PlayerChancesFileLineParserTest() {
         this.parser = new PlayerChancesFileLineParser();
