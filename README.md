@@ -61,7 +61,7 @@ java -jar score-10pin-bowling-1.0-SNAPSHOT.jar [PATH_TO_YOUR_FILE]
 
 ### Sample File
 
-This is a sample data for the **Player Chances File**
+This is a sample data for the **Player Chances File**:
 
         Jeff	10
         John	3
