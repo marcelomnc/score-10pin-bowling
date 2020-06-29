@@ -28,7 +28,7 @@ The app would invalidate a player's game if any of the following rules occur:
 2. Game has not enough chances data (i.e. Less than 10 frames have been completed and there is **NO** more chances data to process)
 3. Any frame of the game exceeds the maximum pin fall sum value of 10.
 
-The app will calculate/print the scores for **VALID GAMES ONLY**.
+**The app will calculate/print the scores for valid games only**.
 
 ## Installation
 
