@@ -185,10 +185,8 @@ The app will validate the following rules before it starts to parse the **Player
 
 The app's logger will print a **SEVERE** level message when any of the above rules occur:
 
-    Jun 29, 2020 1:35:44 PM com.marcelomnc.score10pinbowling.App main
     SEVERE: Command line args are not valid.
     
-    Jun 29, 2020 1:39:11 PM com.marcelomnc.score10pinbowling.App main
     SEVERE: File on path: C:\Temp\score10pinb.txt does not exists. App cannot continue.
 
 The app validates every line of the **Player Chances File** with the following rules:
@@ -281,13 +279,10 @@ The app would invalidate a player's game if any of the following rules occur:
 
 The app's logger will print a **SEVERE** level message when any of the above rules occur:
         
-        Jun 29, 2020 12:39:45 PM com.marcelomnc.score10pinbowling.processor.PinFallsProcessor lambda$processPinFalls$0
         SEVERE: Game for player: Matt, invalidated. Max chances exceeded
         
-        Jun 29, 2020 12:39:45 PM com.marcelomnc.score10pinbowling.processor.PinFallsProcessor lambda$processPinFalls$0
         SEVERE: Game for player: Jeff, invalidated. Not enough chances data
         
-        Jun 29, 2020 12:39:45 PM com.marcelomnc.score10pinbowling.processor.PinFallsProcessor lambda$processPinFalls$0
         SEVERE: Game for player: Marcus, invalidated. Frame 3: exceeds pin falls max sum of 10
 
 **The app will calculate/print the scores for valid games only**.
