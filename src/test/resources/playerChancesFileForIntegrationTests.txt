@@ -1,0 +1,119 @@
+Jeff	10
+John	3
+John	7
+Jeff	7
+Jeff	3
+John	6
+John	3
+Jeff	9
+Jeff	0
+John	10
+Jeff	10
+John	8
+John	1
+Jeff	0
+Jeff	8
+John	10
+Jeff	8
+Jeff	2
+John	10
+Jeff	F
+Jeff	6
+John	9
+John	0
+Jeff	10
+John	7
+John	3
+Jeff	10
+John	4
+John	4
+Jeff	10
+Jeff	8
+Jeff	1
+John	10
+John	9
+John	0
+Zeroes	0
+Zeroes	0
+Zeroes	0
+Zeroes	0
+Zeroes	0
+Zeroes	0
+Zeroes	0
+Zeroes	0
+Zeroes	0
+Zeroes	0
+Zeroes	0
+Zeroes	0
+Zeroes	0
+Zeroes	0
+Zeroes	0
+Zeroes	0
+Zeroes	0
+Zeroes	0
+Zeroes	0
+Zeroes	0
+Fouls	F
+Fouls	F
+Fouls	F
+Fouls	F
+Fouls	F
+Fouls	F
+Fouls	F
+Fouls	F
+Fouls	F
+Fouls	F
+Fouls	F
+Fouls	F
+Fouls	F
+Fouls	F
+Fouls	F
+Fouls	F
+Fouls	F
+Fouls	F
+Fouls	F
+Fouls	F
+Perfect	10
+Perfect	10
+Perfect	10
+Perfect	10
+Perfect	10
+Perfect	10
+Perfect	10
+Perfect	10
+Perfect	10
+Perfect	10
+Perfect	10
+Perfect	10
+Marcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc Bride	10
+Marcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc Bride	10
+Marcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc Bride	10
+Marcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc Bride	10
+Marcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc Bride	10
+Marcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc Bride	10
+Marcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc Bride	10
+Marcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc Bride	10
+Marcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc Bride	10
+Marcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc Bride	10
+Marcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc Bride	10
+Marcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc BrideMarcus Milford Mc Bride	10
+Lack Of Chances	7
+Lack Of Chances	3
+Lack Of Chances	7
+Lack Of Chances	1
+Lack Of Chances	7
+Chances Excess	10
+Chances Excess	10
+Chances Excess	10
+Chances Excess	10
+Chances Excess	10
+Chances Excess	10
+Chances Excess	10
+Chances Excess	10
+Chances Excess	10
+Chances Excess	10
+Chances Excess	10
+Chances Excess	10
+Chances Excess	10
+Chances Excess	10
+Chances Excess	10
