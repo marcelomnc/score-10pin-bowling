@@ -16,9 +16,9 @@ The app validates every line of the **Player Chances File** with the following r
 1. Line has no field separator
 2. Line has not 2 fields only
 3. Line has a value for 'knocked down pins' field that is not between 0 and 10
-4. Line has a value for 'knocked down pins' field that is not a number and not an F (F stands for Foul)
+4. Line has a value for 'knocked down pins' field that is not a number neither an F (F stands for Foul)
 
-If the app finds lines with errors, it will print an error report with the following info:
+If the app finds lines with errors, it will print an **error report** with the following info:
 
 1. Line number
 2. Line
