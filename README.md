@@ -9,6 +9,27 @@ The ins for the app are a text file in which every line has two tab-separated fi
 
 In the context of this app, the mentioned line (with the two fields) is called a **Player Chance**. Hence, in this same context, the file that contains all this data is called **Player Chances File**.
 
+## Validations
+
+The app validates every line of the **Player Chances File** with the following rules:
+
+1. Line has no field separator
+2. Line has not 2 fields only
+3. Line has a value for 'knocked down pins' field that is not between 0 and 10
+4. Line has a value for 'knocked down pins' field that is not a number and not an F (F stands for Foul)
+
+The app only processes/builds/calculates games data when **ALL** lines inside **Player Chances File** has no errors.
+
+## Game Invalidations
+
+The app can invalidate a game if any of the following rules occur:
+
+1. Game exceeds max chances (i.e. All 10 frames of the game have been completed and there is **STILL** chances data to process)
+2. Game has not enough chances data (i.e. Less than 10 frames have been completed and there is **NO** more chances data to process)
+3. Any frame of the game exceeds the maximum pin fall sum value of 10.
+
+The app will calculate/print the scores for **VALID GAMES ONLY**.
+
 ## Installation
 
 Clone this repository
