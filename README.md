@@ -183,7 +183,7 @@ The app will validate the following rules before it starts to parse the **Player
 1. Only 1 argument is passed from the command line (i.e. The **Player Chances File** path)
 2. A file does exists on the specified path
 
-The app's logger will print a **SEVERE** level message when any of the above rules occur:
+The app's logger will print a **SEVERE** log level message when any of the above rules occur:
 
         Jun 29, 2020 1:35:44 PM com.marcelomnc.score10pinbowling.App main
         SEVERE: Command line args are not valid.
@@ -284,7 +284,7 @@ The app would invalidate a player's game if any of the following rules occur:
 2. Game has not enough chances data (i.e. Less than 10 frames have been completed and there is **NO** more chances data to process)
 3. Any frame of the game exceeds the maximum pin fall sum value of 10.
 
-The app's logger will print a **SEVERE** level message when any of the above rules occur:
+The app's logger will print a **SEVERE** log level message when any of the above rules occur:
         
         Jun 29, 2020 12:39:45 PM com.marcelomnc.score10pinbowling.processor.PinFallsProcessor lambda$processPinFalls$0
         SEVERE: Game for player: Matt, invalidated. Max chances exceeded
