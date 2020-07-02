@@ -7,7 +7,7 @@ import com.marcelomnc.score10pinbowling.parser.PlayerChancesFileParser;
 import com.marcelomnc.score10pinbowling.printer.IGamesPrinter;
 import com.marcelomnc.score10pinbowling.printer.IPlayerChancesFileLineErrorsPrinter;
 import com.marcelomnc.score10pinbowling.printer.PlayerChancesFileLineErrorsPrinter;
-import com.marcelomnc.score10pinbowling.printer.SimpleFormatGamePrinter;
+import com.marcelomnc.score10pinbowling.printer.SimpleFormatGamesPrinter;
 import com.marcelomnc.score10pinbowling.processor.IPinFallsProcessor;
 import com.marcelomnc.score10pinbowling.processor.IScoresProcessor;
 import com.marcelomnc.score10pinbowling.processor.PinFallsProcessor;
@@ -70,7 +70,7 @@ public class App {
 
                         if (hasValidGames) {
                             LOGGER.log(Level.INFO, "Printing games ...");
-                            IGamesPrinter gamesPrinter = new SimpleFormatGamePrinter();
+                            IGamesPrinter gamesPrinter = new SimpleFormatGamesPrinter();
                             gamesPrinter.printGames(games);
                             LOGGER.log(Level.INFO, "Games printed !");
                         } else {
