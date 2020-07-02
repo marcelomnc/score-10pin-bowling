@@ -8,7 +8,6 @@ public class Constants {
     public static final String PRINT__ELLIPSIS_LABEL = "...";
     public static final String PRINT__FRAME_SEPARATOR = "|";
     public static final String PRINT__FIELD_SEPARATOR = "\t";
-    public static final String PRINT__FIELD_FILLER = " ";
     public static final String PRINT__FRAME_LABEL = "Frame";
     public static final String PRINT__PINFALLS_LABEL = "PinFalls";
     public static final String PRINT__PINFALLS_CHANCE_SKIPPED_INDICATOR = " ";
