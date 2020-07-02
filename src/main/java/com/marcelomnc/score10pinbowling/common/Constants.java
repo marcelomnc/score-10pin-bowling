@@ -7,6 +7,8 @@ public class Constants {
     public static final String PRINT__PLAYER_LABEL = "Player: ";
     public static final String PRINT__ELLIPSIS_LABEL = "...";
     public static final String PRINT__FRAME_SEPARATOR = "|";
+    public static final String PRINT__FIELD_SEPARATOR = "\t";
+    public static final String PRINT__FIELD_FILLER = " ";
     public static final String PRINT__FRAME_LABEL = "Frame";
     public static final String PRINT__PINFALLS_LABEL = "PinFalls";
     public static final String PRINT__PINFALLS_CHANCE_SKIPPED_INDICATOR = " ";
@@ -23,7 +25,7 @@ public class Constants {
     public static final String PCFL_VALIDATOR__FIELD_VALUE_0_10_MESSAGE = "Line has a value for 'knocked down pins' field that is not between 0 and 10";
     public static final String PCFL_VALIDATOR__FIELD_VALUE_NOT_NUMBER_FOUL_MESSAGE = "Line has a value for 'knocked down pins' field that is not a number neither an F";
 
-    public static final String PCFLEP_PRINT__ERRORS_TITLE = "PLAYER CHANCES FILE ERRORS";
+    public static final String PCFLEP_PRINT__ERRORS_TITLE = "Player Chances File Errors Encountered:";
     public static final String PCFLEP_PRINT__ERRORS_LINE_LABEL = "Line: ";
     public static final String PCFLEP_PRINT__ERRORS_LINE_NUMBER_LABEL = "Line Number: ";
     public static final String PCFLEP_PRINT__ERRORS_LINE_ERROR_LABEL = "Error: ";
