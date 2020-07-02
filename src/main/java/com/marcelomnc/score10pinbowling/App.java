@@ -4,10 +4,10 @@ import com.marcelomnc.score10pinbowling.dto.GameDTO;
 import com.marcelomnc.score10pinbowling.dto.PlayerChancesFileParserResult;
 import com.marcelomnc.score10pinbowling.parser.IPlayerChancesFileParser;
 import com.marcelomnc.score10pinbowling.parser.PlayerChancesFileParser;
-import com.marcelomnc.score10pinbowling.printer.GamesPrinter;
 import com.marcelomnc.score10pinbowling.printer.IGamesPrinter;
 import com.marcelomnc.score10pinbowling.printer.IPlayerChancesFileLineErrorsPrinter;
 import com.marcelomnc.score10pinbowling.printer.PlayerChancesFileLineErrorsPrinter;
+import com.marcelomnc.score10pinbowling.printer.SimpleGamePrinter;
 import com.marcelomnc.score10pinbowling.processor.IPinFallsProcessor;
 import com.marcelomnc.score10pinbowling.processor.IScoresProcessor;
 import com.marcelomnc.score10pinbowling.processor.PinFallsProcessor;
@@ -19,12 +19,17 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 import java.util.logging.Level;
+import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 public class App {
     private static final Logger LOGGER = Logger.getLogger(App.class.getName());
 
     public static void main(String[] args) {
+        LogManager.getLogManager().reset();
+        Logger globalLogger = Logger.getLogger(java.util.logging.Logger.GLOBAL_LOGGER_NAME);
+        globalLogger.setLevel(java.util.logging.Level.OFF);
+
         LOGGER.log(Level.INFO, "Score 10-pin bowling app started");
         ICommandLineArgsValidator ICommandLineArgsValidator = new CommandLineArgsValidator();
 
@@ -65,11 +70,13 @@ public class App {
 
                         if (hasValidGames) {
                             LOGGER.log(Level.INFO, "Printing games ...");
-                            IGamesPrinter gamesPrinter = new GamesPrinter();
+                            IGamesPrinter gamesPrinter = new SimpleGamePrinter();
                             gamesPrinter.printGames(games);
                             LOGGER.log(Level.INFO, "Games printed !");
                         } else {
-                            LOGGER.log(Level.SEVERE, "No valid games to print");
+                            String message = "No valid games to print";
+                            System.out.println(message);
+                            LOGGER.log(Level.SEVERE, message);
                         }
                     } else {
                         //Player Chances File has lines with errors
@@ -79,13 +86,19 @@ public class App {
                         LOGGER.log(Level.INFO, "Errors printed !");
                     }
                 } catch (IOException e) {
-                    LOGGER.log(Level.SEVERE, "IO exception while parsing player chances file on path: " + args[0] + ". App cannot continue", e);
+                    String message = "An IOException ocurred while parsing the player chances file on path: " + args[0] + ". App cannot continue";
+                    LOGGER.log(Level.SEVERE, message, e);
+                    System.out.println(message);
                 }
             } else {
+                String message = "File on path: " + args[0] + " does not exists. App cannot continue";
                 LOGGER.log(Level.SEVERE, "File on path: " + args[0] + " does not exists. App cannot continue");
+                System.out.println(message);
             }
         } else {
-            LOGGER.log(Level.SEVERE, "Command line args are not valid");
+            String message = "Command line arguments not valid. App cannot continue";
+            LOGGER.log(Level.SEVERE, message);
+            System.out.println(message);
         }
 
         LOGGER.log(Level.INFO, "Score 10-pin bowling app finished");
