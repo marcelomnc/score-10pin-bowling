@@ -9,7 +9,7 @@ public class Constants {
     public static final String PRINT__FRAME_SEPARATOR = "|";
     public static final String PRINT__FIELD_SEPARATOR = "\t";
     public static final String PRINT__FRAME_LABEL = "Frame";
-    public static final String PRINT__PINFALLS_LABEL = "PinFalls";
+    public static final String PRINT__PINFALLS_LABEL = "Pinfalls";
     public static final String PRINT__PINFALLS_CHANCE_SKIPPED_INDICATOR = " ";
     public static final String PRINT__PINFALLS_FOUL_INDICATOR = "F";
     public static final String PRINT__PINFALLS_SPARE_INDICATOR = "/";
