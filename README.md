@@ -160,28 +160,22 @@ This is a sample data for the **Player Chances File**:
     
 The printed output by the app for the file above would be as follows:
 
-        -----------------------------------GAMES------------------------------------
-        Player: Jeff
-        Frame          |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  | 10  |
-        PinFalls       |   X | 7 / | 9 0 |   X | 0 8 | 8 / | F 6 |   X |   X |X 8 1|
-        Score          | 20  | 39  | 48  | 66  | 74  | 84  | 90  | 120 | 148 | 167 |
-        Player: John
-        Frame          |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  | 10  |
-        PinFalls       | 3 / | 6 3 |   X | 8 1 |   X |   X | 9 0 | 7 / | 4 4 |X 9 0|
-        Score          | 16  | 25  | 44  | 53  | 82  | 101 | 110 | 124 | 132 | 151 |
-        Player: Zeroes
-        Frame          |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  | 10  |
-        PinFalls       | 0 0 | 0 0 | 0 0 | 0 0 | 0 0 | 0 0 | 0 0 | 0 0 | 0 0 | 0 0 |
-        Score          |  0  |  0  |  0  |  0  |  0  |  0  |  0  |  0  |  0  |  0  |
-        Player: Fouls
-        Frame          |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  | 10  |
-        PinFalls       | F F | F F | F F | F F | F F | F F | F F | F F | F F | F F |
-        Score          |  0  |  0  |  0  |  0  |  0  |  0  |  0  |  0  |  0  |  0  |
-        Player: Perfect
-        Frame          |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  | 10  |
-        PinFalls       |   X |   X |   X |   X |   X |   X |   X |   X |   X |X X X|
-        Score          | 30  | 60  | 90  | 120 | 150 | 180 | 210 | 240 | 270 | 300 |
-        ----------------------------------------------------------------------------
+        Frame           1               2               3               4               5               6               7               8               9               10
+        Jeff
+        PinFalls                X       7       /       9       0               X       0       8       8       /       F       6               X               X       X       8       1
+        Score           20              39              48              66              74              84              90              120             148             167
+        John
+        PinFalls        3       /       6       3               X       8       1               X               X       9       0       7       /       4       4       X       9       0
+        Score           16              25              44              53              82              101             110             124             132             151
+        Zeroes
+        PinFalls        0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+        Score           0               0               0               0               0               0               0               0               0               0
+        Fouls
+        PinFalls        F       F       F       F       F       F       F       F       F       F       F       F       F       F       F       F       F       F       F       F
+        Score           0               0               0               0               0               0               0               0               0               0
+        Perfect
+        PinFalls                X               X               X               X               X               X               X               X               X       X       X       X
+        Score           30              60              90              120             150             180             210             240             270             300
     
 ## Validations
 
@@ -190,18 +184,15 @@ The app will validate the following rules before it starts to parse the **Player
 1. Only 1 argument is passed from the command line (i.e. The **Player Chances File** path)
 2. A file does exists on the specified path
 
-The app's logger will print a **SEVERE** log level message when any of the above rules occur:
+The app will print a message when any of the above rules occur:
 
-        Jun 29, 2020 1:35:44 PM com.marcelomnc.score10pinbowling.App main
-        SEVERE: Command line args are not valid.
+        Command line arguments not valid. App cannot continue
         
-        Jun 29, 2020 1:39:11 PM com.marcelomnc.score10pinbowling.App main
-        SEVERE: File on path: C:\Temp\score10pinb.txt does not exists. App cannot continue.
+        File on path: C:/Users/marce/Desktop/score10pinbowling.tx does not exists. App cannot continue
     
-If an ``IOException`` is thrown while parsing the file, a **SEVERE** log level message will be printed out, then the app will exit:
+If an ``IOException`` is thrown while parsing the file, a message will be printed out, then the app will exit:
 
-        Jun 29, 2020 1:39:11 PM com.marcelomnc.score10pinbowling.App main
-        SEVERE: IO exception while parsing player chances file on path: C:\Temp\score10pinbowling.txt. App cannot continue.
+        An IOException ocurred while parsing the player chances file on path: C:\Temp\score10pinbowling.txt. App cannot continue.
 
 The app validates every line of the **Player Chances File** with the following rules:
 
@@ -216,7 +207,7 @@ If the app finds lines with errors, it will print an **error report** with the f
 2. Line
 3. Error message
 
-For a **Player Chances File** with these lines:
+Given a **Player Chances File** with these lines:
 
         1.dsasd
         2.
@@ -235,8 +226,7 @@ For a **Player Chances File** with these lines:
         
 The **error report** printed by the app would be as follows:
 
-
-        -------------------------PLAYER CHANCES FILE ERRORS------------------------
+        Player Chances File Errors Encountered:
         
         Line Number: 1
         Line: dsasd
@@ -277,9 +267,6 @@ The **error report** printed by the app would be as follows:
         Line Number: 14
         Line: 8999      89
         Error: Line has a value for 'knocked down pins' field that is not between 0 and 10
-        
-        ----------------------------------------------------------------------------
-
 
 **The app only processes/builds/calculates games data when all lines inside Player Chances File has no errors**.
 
@@ -291,24 +278,19 @@ The app would invalidate a player's game if any of the following rules occur:
 2. Game has not enough chances data (i.e. Less than 10 frames have been completed and there is **NO** more chances data to process)
 3. Any frame of the game exceeds the maximum pin fall sum value of 10.
 
-The app's logger will print a **SEVERE** log level message when any of the above rules occur:
+The app will print a message when any of the above rules occur:
         
-        Jun 29, 2020 12:39:45 PM com.marcelomnc.score10pinbowling.processor.PinFallsProcessor lambda$processPinFalls$0
-        SEVERE: Game for player: Matt, invalidated. Max chances exceeded
+        Game for player: Matt, invalidated. Max chances exceeded
         
-        Jun 29, 2020 12:39:45 PM com.marcelomnc.score10pinbowling.processor.PinFallsProcessor lambda$processPinFalls$0
-        SEVERE: Game for player: Jeff, invalidated. Not enough chances data
+        Game for player: Jeff, invalidated. Not enough chances data
         
-        Jun 29, 2020 12:39:45 PM com.marcelomnc.score10pinbowling.processor.PinFallsProcessor lambda$processPinFalls$0
-        SEVERE: Game for player: Marcus, invalidated. Frame 3: exceeds pin falls max sum of 10
+        Game for player: Marcus, invalidated. Frame 3: exceeds pin falls max sum of 10
 
 **The app will calculate/print the scores for valid games only**.
 
-If **NO** valid games are present, a **SEVERE** log level message will be printed, then the app will exit:
+If **NO** valid games are present, a message will be printed, then the app will exit:
 
-        Jun 29, 2020 2:02:40 PM com.marcelomnc.score10pinbowling.App main
-        SEVERE: No valid games to print.
-        
+        No valid games to print.
 
 ## Links
 
