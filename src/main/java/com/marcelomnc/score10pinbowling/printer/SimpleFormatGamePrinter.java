@@ -6,7 +6,7 @@ import com.marcelomnc.score10pinbowling.dto.GameDTO;
 
 import java.util.Map;
 
-public class SimpleGamePrinter implements IGamesPrinter {
+public class SimpleFormatGamePrinter implements IGamesPrinter {
 
     @Override
     public void printGames(Map<String, GameDTO> games) {
