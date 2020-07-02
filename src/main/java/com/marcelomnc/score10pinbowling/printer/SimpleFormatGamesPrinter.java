@@ -22,7 +22,6 @@ public class SimpleFormatGamesPrinter implements IGamesPrinter {
                 StringBuilder sb = new StringBuilder();
                 sb = new StringBuilder();
                 sb.append(Constants.PRINT__PINFALLS_LABEL);
-                sb.append(Constants.PRINT__FIELD_FILLER);
                 sb.append(Constants.PRINT__FIELD_SEPARATOR);
 
                 for (int i = 0; i < gameDTO.getFrameDTOS().size(); i++) {
@@ -36,7 +35,6 @@ public class SimpleFormatGamesPrinter implements IGamesPrinter {
                         } else {
                             sb.append(frame.getPinFalls().get(0).getValue());
                         }
-                        sb.append(Constants.PRINT__FIELD_FILLER);
                         sb.append(Constants.PRINT__FIELD_SEPARATOR);
 
                         if (frame.getPinFalls().get(1).isFoul()) {
@@ -50,7 +48,6 @@ public class SimpleFormatGamesPrinter implements IGamesPrinter {
                         }
 
                         if (frame.getPinFalls().size() == 3) {
-                            sb.append(Constants.PRINT__FIELD_FILLER);
                             sb.append(Constants.PRINT__FIELD_SEPARATOR);
 
                             if (frame.getPinFalls().get(2).isFoul()) {
@@ -64,14 +61,11 @@ public class SimpleFormatGamesPrinter implements IGamesPrinter {
                     } else {
                         //Frames 1 to 9
                         if (frame.getPinFalls().size() == 1) {
-                            sb.append(Constants.PRINT__FIELD_FILLER);
                             sb.append(Constants.PRINT__FIELD_SEPARATOR);
                             sb.append(Constants.PRINT__PINFALLS_STRIKE_INDICATOR);
-                            sb.append(Constants.PRINT__FIELD_FILLER);
                             sb.append(Constants.PRINT__FIELD_SEPARATOR);
                         } else {
                             sb.append(frame.getPinFalls().get(0).isFoul() ? Constants.PRINT__PINFALLS_FOUL_INDICATOR : String.valueOf(frame.getPinFalls().get(0).getValue()));
-                            sb.append(Constants.PRINT__FIELD_FILLER);
                             sb.append(Constants.PRINT__FIELD_SEPARATOR);
 
                             if ((frame.getPinFalls().get(0).getValue() + frame.getPinFalls().get(1).getValue()) == 10) {
@@ -79,7 +73,6 @@ public class SimpleFormatGamesPrinter implements IGamesPrinter {
                             } else {
                                 sb.append(frame.getPinFalls().get(1).isFoul() ? Constants.PRINT__PINFALLS_FOUL_INDICATOR : String.valueOf(frame.getPinFalls().get(1).getValue()));
                             }
-                            sb.append(Constants.PRINT__FIELD_FILLER);
                             sb.append(Constants.PRINT__FIELD_SEPARATOR);
                         }
                     }
@@ -89,9 +82,7 @@ public class SimpleFormatGamesPrinter implements IGamesPrinter {
                 //Printing scores
                 sb = new StringBuilder();
                 sb.append(Constants.PRINT__SCORE_LABEL);
-                sb.append(Constants.PRINT__FIELD_FILLER);
                 sb.append(Constants.PRINT__FIELD_SEPARATOR);
-                sb.append(Constants.PRINT__FIELD_FILLER);
                 sb.append(Constants.PRINT__FIELD_SEPARATOR);
 
                 for (int i = 0; i < gameDTO.getFrameDTOS().size(); i++) {
@@ -103,9 +94,7 @@ public class SimpleFormatGamesPrinter implements IGamesPrinter {
                         sb.append(strScore);
                     } else {
                         sb.append(strScore);
-                        sb.append(Constants.PRINT__FIELD_FILLER);
                         sb.append(Constants.PRINT__FIELD_SEPARATOR);
-                        sb.append(Constants.PRINT__FIELD_FILLER);
                         sb.append(Constants.PRINT__FIELD_SEPARATOR);
                     }
                 }
@@ -118,15 +107,11 @@ public class SimpleFormatGamesPrinter implements IGamesPrinter {
         //Printing frames header
         StringBuilder sb = new StringBuilder();
         sb.append(Constants.PRINT__FRAME_LABEL);
-        sb.append(Constants.PRINT__FIELD_FILLER);
         sb.append(Constants.PRINT__FIELD_SEPARATOR);
-        sb.append(Constants.PRINT__FIELD_FILLER);
         sb.append(Constants.PRINT__FIELD_SEPARATOR);
         for (int i = 1; i <= 9; i++) {
             sb.append(i);
-            sb.append(Constants.PRINT__FIELD_FILLER);
             sb.append(Constants.PRINT__FIELD_SEPARATOR);
-            sb.append(Constants.PRINT__FIELD_FILLER);
             sb.append(Constants.PRINT__FIELD_SEPARATOR);
         }
         sb.append(10);
