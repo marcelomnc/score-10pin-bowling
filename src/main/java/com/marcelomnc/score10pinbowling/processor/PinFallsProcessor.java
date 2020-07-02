@@ -49,10 +49,14 @@ public class PinFallsProcessor implements IPinFallsProcessor {
                         gameDTO.setValid(false);
                         if (currentPinFallIndex == 1) {
                             //This is an error, because if this is the second chance, pin fall sum must be NOT greater than 10
-                            LOGGER.log(Level.SEVERE, "Game for player: " + gameDTO.getPlayerName() + ", invalidated. Frame " + (currentFrameIndex + 1) + ": exceeds pin falls max sum of 10");
+                            String message = "Game for player: " + gameDTO.getPlayerName() + ", invalidated. Frame " + (currentFrameIndex + 1) + ": exceeds pin falls max sum of 10";
+                            System.out.println(message);
+                            LOGGER.log(Level.SEVERE, message);
                         } else {
                             //Third (extra) chance only allowed when there is a strike nn the first chance, or a spare in the first two chances
-                            LOGGER.log(Level.SEVERE, "Game for player: " + gameDTO.getPlayerName() + ", invalidated. Max chances exceeded");
+                            String message = "Game for player: " + gameDTO.getPlayerName() + ", invalidated. Max chances exceeded";
+                            System.out.println(message);
+                            LOGGER.log(Level.SEVERE, message);
                         }
                         break;
                     }
@@ -71,7 +75,9 @@ public class PinFallsProcessor implements IPinFallsProcessor {
                         } else {
                             //This is an error, because if this is the second chance, pin fall sum must be NOT greater than 10
                             gameDTO.setValid(false);
-                            LOGGER.log(Level.SEVERE, "Game for player: " + gameDTO.getPlayerName() + ", invalidated. Frame " + (currentFrameIndex + 1) + ": exceeds pin falls max sum of 10");
+                            String message = "Game for player: " + gameDTO.getPlayerName() + ", invalidated. Frame " + (currentFrameIndex + 1) + ": exceeds pin falls max sum of 10";
+                            System.out.println(message);
+                            LOGGER.log(Level.SEVERE, message);
                             break;
                         }
                     } else {
@@ -89,7 +95,9 @@ public class PinFallsProcessor implements IPinFallsProcessor {
                         } else {
                             //This is an error, because if this is the second chance, pin fall sum must be NOT greater than 10
                             gameDTO.setValid(false);
-                            LOGGER.log(Level.SEVERE, "Game for player: " + gameDTO.getPlayerName() + ", invalidated. Frame " + (currentFrameIndex + 1) + ": exceeds pin falls max sum of 10");
+                            String message = "Game for player: " + gameDTO.getPlayerName() + ", invalidated. Frame " + (currentFrameIndex + 1) + ": exceeds pin falls max sum of 10";
+                            System.out.println(message);
+                            LOGGER.log(Level.SEVERE, message);
                             break;
                         }
                     }
@@ -118,7 +126,9 @@ public class PinFallsProcessor implements IPinFallsProcessor {
                 if (invalidateGame) {
                     //This is an error, player has not enough chance data on the file
                     gameDTO.setValid(false);
-                    LOGGER.log(Level.SEVERE, "Game for player: " + gameDTO.getPlayerName() + ", invalidated. Not enough chances data");
+                    String message = "Game for player: " + gameDTO.getPlayerName() + ", invalidated. Not enough chances data";
+                    System.out.println(message);
+                    LOGGER.log(Level.SEVERE, message);
                 }
             }
         });
