@@ -96,7 +96,7 @@ public class App {
                 System.out.println(message);
             }
         } else {
-            String message = "Command line arguments not valid. App cannot continue";
+            String message = "Command line args are not valid. App cannot continue";
             LOGGER.log(Level.SEVERE, message);
             System.out.println(message);
         }
