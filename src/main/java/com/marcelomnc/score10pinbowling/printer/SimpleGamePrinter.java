@@ -34,7 +34,7 @@ public class SimpleGamePrinter implements IGamesPrinter {
                         } else if (frame.getPinFalls().get(0).getValue() == 10) {
                             sb.append(Constants.PRINT__PINFALLS_STRIKE_INDICATOR);
                         } else {
-                            sb.append(String.valueOf(frame.getPinFalls().get(0).getValue()));
+                            sb.append(frame.getPinFalls().get(0).getValue());
                         }
                         sb.append(Constants.PRINT__FIELD_FILLER);
                         sb.append(Constants.PRINT__FIELD_SEPARATOR);
@@ -46,7 +46,7 @@ public class SimpleGamePrinter implements IGamesPrinter {
                         } else if ((frame.getPinFalls().get(0).getValue() + frame.getPinFalls().get(1).getValue()) == 10) {
                             sb.append(Constants.PRINT__PINFALLS_SPARE_INDICATOR);
                         } else {
-                            sb.append(String.valueOf(frame.getPinFalls().get(1).getValue()));
+                            sb.append(frame.getPinFalls().get(1).getValue());
                         }
 
                         if (frame.getPinFalls().size() == 3) {
@@ -58,7 +58,7 @@ public class SimpleGamePrinter implements IGamesPrinter {
                             } else if (frame.getPinFalls().get(2).getValue() == 10) {
                                 sb.append(Constants.PRINT__PINFALLS_STRIKE_INDICATOR);
                             } else {
-                                sb.append(String.valueOf(frame.getPinFalls().get(2).getValue()));
+                                sb.append(frame.getPinFalls().get(2).getValue());
                             }
                         }
                     } else {
@@ -123,13 +123,13 @@ public class SimpleGamePrinter implements IGamesPrinter {
         sb.append(Constants.PRINT__FIELD_FILLER);
         sb.append(Constants.PRINT__FIELD_SEPARATOR);
         for (int i = 1; i <= 9; i++) {
-            sb.append(String.valueOf(i));
+            sb.append(i);
             sb.append(Constants.PRINT__FIELD_FILLER);
             sb.append(Constants.PRINT__FIELD_SEPARATOR);
             sb.append(Constants.PRINT__FIELD_FILLER);
             sb.append(Constants.PRINT__FIELD_SEPARATOR);
         }
-        sb.append(String.valueOf(10));
+        sb.append(10);
         System.out.println(sb.toString());
     }
 }
