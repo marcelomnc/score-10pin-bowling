@@ -19,6 +19,18 @@ import java.util.List;
 import java.util.Map;
 
 public class PlayerChancesFileParser implements IPlayerChancesFileParser {
+    final IPlayerChancesFileLineValidator playerChancesFileLineValidator;
+    final IPlayerChancesFileLineParser playerChancesFileLineParser;
+
+    public PlayerChancesFileParser() {
+        this(new PlayerChancesFileLineValidator(), new PlayerChancesFileLineParser());
+    }
+
+    PlayerChancesFileParser(IPlayerChancesFileLineValidator playerChancesFileLineValidator, IPlayerChancesFileLineParser playerChancesFileLineParser) {
+        this.playerChancesFileLineValidator = playerChancesFileLineValidator;
+        this.playerChancesFileLineParser = playerChancesFileLineParser;
+    }
+
     @Override
     public PlayerChancesFileParserResultDTO parsePlayerChancesFile(File playerChancesFile) throws IOException {
         if (!playerChancesFile.exists()) {
@@ -33,9 +45,6 @@ public class PlayerChancesFileParser implements IPlayerChancesFileParser {
         //Use linked hashmap to keep the player games order same as how the chances appear inside the file, key is the player's name
         final Map<String, GameDTO> parsedGames = new LinkedHashMap<>();
 
-        final IPlayerChancesFileLineValidator playerChancesFileLineValidator = new PlayerChancesFileLineValidator();
-        final IPlayerChancesFileLineParser playerChancesFileLineParser = new PlayerChancesFileLineParser();
-
         int currentLineNumber = 1;
         //Using the old way of reading files just to be able to grab the line number for the errors report
         try (final FileReader fr = new FileReader(playerChancesFile);
@@ -44,13 +53,13 @@ public class PlayerChancesFileParser implements IPlayerChancesFileParser {
 
             while (playerChancesFileLine != null) {
                 final String currentLine = playerChancesFileLine;
-                playerChancesFileLineValidator.validate(currentLine, currentLineNumber)
+                this.playerChancesFileLineValidator.validate(currentLine, currentLineNumber)
                         .map(
                                 //Line is not valid
                                 errorLines::add
                         )
                         .orElseGet(() -> {
-                            final PlayerChanceDTO playerChanceDTO = playerChancesFileLineParser.parseLine(currentLine);
+                            final PlayerChanceDTO playerChanceDTO = this.playerChancesFileLineParser.parseLine(currentLine);
                             GameDTO gameDTO = parsedGames.get(playerChanceDTO.getPlayerName());
 
                             if (gameDTO == null) {
