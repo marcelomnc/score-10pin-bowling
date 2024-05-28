@@ -9,7 +9,11 @@ public class PlayerChancesFileErrorsPrinter {
     private final IPlayerChancesFileErrorLineOutputBuilder playerChancesFileErrorLineOutputBuilder;
 
     public PlayerChancesFileErrorsPrinter() {
-        this.playerChancesFileErrorLineOutputBuilder = new PlayerChancesFileErrorLineOutputBuilder();
+        this(new PlayerChancesFileErrorLineOutputBuilder());
+    }
+
+    PlayerChancesFileErrorsPrinter(IPlayerChancesFileErrorLineOutputBuilder playerChancesFileErrorLineOutputBuilder) {
+        this.playerChancesFileErrorLineOutputBuilder = playerChancesFileErrorLineOutputBuilder;
     }
 
     public void printErrors(List<PlayerChancesFileErrorLineDTO> errorLines) {
