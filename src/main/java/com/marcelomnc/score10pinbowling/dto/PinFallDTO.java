@@ -1,30 +1,21 @@
 package com.marcelomnc.score10pinbowling.dto;
 
-public class PinFallDTO {
-    private boolean foul;
-    private int value;
+import java.io.Serializable;
 
-    public PinFallDTO() {
-    }
+public class PinFallDTO implements Serializable {
+    private final boolean foul;
+    private final int knockedDownPins;
 
-    public PinFallDTO(boolean foul, int value) {
+    public PinFallDTO(boolean foul, int knockedDownPins) {
         this.foul = foul;
-        this.value = value;
+        this.knockedDownPins = knockedDownPins;
     }
 
     public boolean isFoul() {
         return foul;
     }
 
-    public void setFoul(boolean foul) {
-        this.foul = foul;
-    }
-
-    public int getValue() {
-        return value;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
+    public int getKnockedDownPins() {
+        return knockedDownPins;
     }
 }

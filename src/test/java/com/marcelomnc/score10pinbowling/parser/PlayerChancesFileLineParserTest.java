@@ -5,31 +5,35 @@ import com.marcelomnc.score10pinbowling.dto.PlayerChanceDTO;
 import org.junit.Assert;
 import org.junit.Test;
 
-/**
- * This test class must be in the same package of the class being tested
- * because it has package level access, is a class not meant to be used publicly
- */
 public class PlayerChancesFileLineParserTest {
-    private final PlayerChancesFileLineParser parser;
+
+    private final IPlayerChancesFileLineParser toTest;
 
     public PlayerChancesFileLineParserTest() {
-        this.parser = new PlayerChancesFileLineParser();
+        this.toTest = new PlayerChancesFileLineParser();
     }
 
     @Test
-    public void shouldParseRegularLine() {
-        String line = "Jeff" + Constants.PLAYER_CHANCES_FILE__FIELD_SEPARATOR + "9";
-        PlayerChanceDTO playerChanceDTO = this.parser.parseLine(line);
-        Assert.assertEquals(playerChanceDTO.getPlayerName(), "Jeff");
-        Assert.assertEquals(playerChanceDTO.getKnockedDownPins(), 9);
+    public void testParseLineWithScoreValue() {
+        final String playerName = "Jeff";
+        final int knockedDownPins = 10;
+        final String line = playerName +
+                Constants.PLAYER_CHANCES_FILE__FIELD_SEPARATOR +
+                knockedDownPins;
+        final PlayerChanceDTO playerChanceDTO = this.toTest.parseLine(line);
+        Assert.assertEquals(playerName, playerChanceDTO.getPlayerName());
+        Assert.assertEquals(knockedDownPins, playerChanceDTO.getKnockedDownPins());
     }
 
     @Test
-    public void shouldParseFoulLine() {
-        String line = "Jeff" + Constants.PLAYER_CHANCES_FILE__FIELD_SEPARATOR + Constants.PRINT__PINFALLS_FOUL_INDICATOR;
-        PlayerChanceDTO playerChanceDTO = this.parser.parseLine(line);
-        Assert.assertEquals(playerChanceDTO.getPlayerName(), "Jeff");
-        Assert.assertEquals(playerChanceDTO.getKnockedDownPins(), 0);
+    public void testParseLineWithScoreValueForFoul() {
+        final String playerName = "Jeff";
+        final String foulIndicator = Constants.PLAYER_CHANCES_FILE__FOUL_INDICATOR;
+        final String line = playerName +
+                Constants.PLAYER_CHANCES_FILE__FIELD_SEPARATOR +
+                foulIndicator;
+        final PlayerChanceDTO playerChanceDTO = this.toTest.parseLine(line);
+        Assert.assertEquals(playerName, playerChanceDTO.getPlayerName());
         Assert.assertTrue(playerChanceDTO.isFoul());
     }
 }

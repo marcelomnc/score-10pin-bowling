@@ -1,39 +1,33 @@
-# score-10pin-bowling
+# java-challenge
 
-This is a **JAVA** command line app that parses/processes/builds/calculates all the data (**pin falls** and **scores**) for all the 10 frames in a bowling game played by one or more players.
+This is a **JAVA** command line app that parses/processes/builds/calculates/prints all the data (**pin falls** and **scores**) for all the 10 frames in a bowling game played by one or more players.
 
-The ins for the app are a text file in which every line has two tab-separated fields:
+The input for the app is a text file in which every line has two tab-separated fields:
 
 1. Player Name
 2. Number Of Pins Knocked Down
 
-In the context of this app, the mentioned line (with the two fields) is called a **Player Chance**. Hence, in this same context, the file that contains all this data is called **Player Chances File**.
+In the context of this app, the mentioned line (the one with the two fields) is called a **Player Chance**. Hence, in this same context, the file that contains all this data is called **Player Chances File**.
 
 ## Requirements
 
-This app requires the following tools:
+This app requires the following tools, so it can be built/executed:
 
-1. Java 8
-2. Apache Maven 3.6.3+ 
+1. Apache Maven 3.9.6+
+2. Java 8
 
 ## Installation
 
-Clone this repository:
+Cd into this project's parent folder:
 
 ```bash
-git clone https://github.com/marcelomnc/score-10pin-bowling
-```
-
-Cd into the cloned repository folder:
-
-```bash
-cd score-10pin-bowling
+cd JavaChallenge
 ```
 
 Build the project using **maven**:
 
 ```bash
-mvn install
+mvn clean install
 ```
 
 Maven will create a folder with the name **target**. Cd into it:
@@ -42,29 +36,32 @@ Maven will create a folder with the name **target**. Cd into it:
 cd target
 ```
 
-Inside it you will find the app's executable jar file:
+Inside it, you will find the app's executable jar file (`java-challenge-2.0-SNAPSHOT.jar`):
 
 ```bash
 ls -l
-total 28
-drwxr-xr-x 1 owner 197609     0 Jun 25 10:21 classes/
-drwxr-xr-x 1 owner 197609     0 Jun 25 09:43 generated-sources/
-drwxr-xr-x 1 owner 197609     0 Jun 25 09:43 generated-test-sources/
--rw-r--r-- 1 owner 197609     0 Jun 25 10:26 java
-drwxr-xr-x 1 owner 197609     0 Jun 25 10:10 maven-archiver/
-drwxr-xr-x 1 owner 197609     0 Jun 25 10:10 maven-status/
--rw-r--r-- 1 owner 197609 24067 Jun 26 18:56 score-10pin-bowling-1.0-SNAPSHOT.jar
-drwxr-xr-x 1 owner 197609     0 Jun 26 07:50 surefire-reports/
-drwxr-xr-x 1 owner 197609     0 Jun 25 10:21 test-classes/
+total 200
+drwxr-xr-x   4 marcelomnc  staff    128 May 22 22:58 classes
+drwxr-xr-x   3 marcelomnc  staff     96 May 22 22:58 generated-sources
+drwxr-xr-x   3 marcelomnc  staff     96 May 22 22:58 generated-test-sources
+-rw-r--r--   1 marcelomnc  staff  68435 May 22 22:58 jacoco.exec
+-rw-r--r--   1 marcelomnc  staff  30598 May 22 22:58 java-challenge-2.0-SNAPSHOT.jar
+drwxr-xr-x   3 marcelomnc  staff     96 May 22 22:58 maven-archiver
+drwxr-xr-x   3 marcelomnc  staff     96 May 22 22:58 maven-status
+drwxr-xr-x   3 marcelomnc  staff     96 May 22 22:58 site
+drwxr-xr-x  28 marcelomnc  staff    896 May 22 22:58 surefire-reports
+drwxr-xr-x   5 marcelomnc  staff    160 May 22 22:58 test-classes
 ```
 
 ## Running
 
-To run this app you will need a text file (**Player Chances File**) with all the data that must be parsed and processed. You can execute it passing the mentioned file path as the first and unique argument on the command line as follows:
+To run this app you will need a text file (The **Player Chances File**) with all the data that must be parsed and processed. You can execute it setting the mentioned file path as the first and unique argument on the command line as follows:
 
 ```bash
-java -jar score-10pin-bowling-1.0-SNAPSHOT.jar [PATH_TO_YOUR_FILE]
+java -jar java-challenge-2.0-SNAPSHOT.jar [PATH_TO_YOUR_FILE]
 ```
+
+> **NOTE:** If the path to your file contains spaces (`" "`), don't forget to enclose it using double quotation marks as in: `"/folder/name with spaces/more spaces/file.txt"`.
 
 ### Sample File
 
@@ -157,7 +154,7 @@ This is a sample data for the **Player Chances File**:
         Perfect	10
         Perfect	10
         Perfect	10
-    
+
 The printed output by the app for the file above would be as follows:
 
         Frame           1               2               3               4               5               6               7               8               9               10
@@ -176,32 +173,36 @@ The printed output by the app for the file above would be as follows:
         Perfect
         PinFalls                X               X               X               X               X               X               X               X               X       X       X       X
         Score           30              60              90              120             150             180             210             240             270             300
-    
+
 ## Validations
 
-The app will validate the following rules before it starts to parse the **Player Chances File**:
+The app will validate the following conditions before it starts to parse the **Player Chances File**:
 
 1. Only 1 argument is passed from the command line (i.e. The **Player Chances File** path)
-2. A file does exists on the specified path
+2. A file exists on the specified path
+3. The file is NOT empty
 
-The app will print a message when any of the above rules occur:
+The app will print a message when any of the above conditions are not met:
 
-        Command line arguments not valid. App cannot continue
+        This application expects just one argument (the input file path) in the command line, no more, no less.
         
-        File on path: C:/Users/marce/Desktop/score10pinbowling.tx does not exists. App cannot continue
-    
-If an ``IOException`` is thrown while parsing the file, a message will be printed out, then the app will exit:
+        Player Chances File Errors Encountered:
+        Error: File in path [/Users/marcelomnc/Downloads/_Challenge/Code Challenge/Repo/JavaChallenge/src/test/resources/positive/scores-.txt] not found. Application execution aborted.
 
-        An IOException ocurred while parsing the player chances file on path: C:\Temp\score10pinbowling.txt. App cannot continue.
+        Player Chances File Errors Encountered:
+        Error: File in path [/Users/marcelomnc/Downloads/_Challenge/Code Challenge/Repo/JavaChallenge/src/test/resources/negative/empty.txt] is empty. Application execution aborted.
 
-The app validates every line of the **Player Chances File** with the following rules:
+If an ``IOException`` is thrown while trying to read the file, a message will be printed out, then the app will exit:
 
-1. Line has no field separator
-2. Line has not 2 fields only
-3. Line has a value for 'knocked down pins' field that is not between 0 and 10
-4. Line has a value for 'knocked down pins' field that is not a number neither an F (F stands for Foul)
+        An exception occurred while trying to read the player chances file on path: [C:\Temp\score10pinbowling.txt]. Application execution aborted.
 
-If the app finds lines with errors, it will print an **error report** with the following info:
+The app validates these conditions for each line inside the **Player Chances File**:
+
+1. Line has a field separator (tab)
+2. Line has 2 fields only (player's name and knocked down pins quantity)
+3. Line has a value for 'knocked down pins' field that is between 0 and 10 (both inclusive), or an F to indicate a Foul
+
+If the app finds lines on which the conditions above are not met, it will print an **error report** with the following info:
 
 1. Line number
 2. Line
@@ -223,76 +224,81 @@ Given a **Player Chances File** with these lines:
         12.Marcus	10
         13.Marcus	10
         14.8999	89
-        
+
 The **error report** printed by the app would be as follows:
 
         Player Chances File Errors Encountered:
-        
+
         Line Number: 1
-        Line: dsasd
-        Error: Line has no field separator
+        Original line: dsasd
+        Error: Line has no field separator.
         
         Line Number: 2
-        Line:
-        Error: Line has no field separator
+        Original line:
+        Error: Line has no field separator.
         
         Line Number: 3
-        Line: 67723     ughgg
-        Error: Line has a value for 'knocked down pins' field that is not a number neither an F
+        Original line: 67723    ughgg
+        Error: The value for 'knocked down pins' field must be a number (0-10) or an F to indicate a foul. Found value: [ughgg].
         
         Line Number: 4
-        Line:
-        Error: Line has no field separator
+        Original line:
+        Error: Line has no field separator.
         
         Line Number: 5
-        Line:
-        Error: Line has no field separator
+        Original line:
+        Error: Line has no field separator.
         
         Line Number: 6
-        Line:
-        Error: Line has not 2 fields only
+        Original line:
+        Error: Line has no field separator.
         
         Line Number: 7
-        Line: jdjsdhaak
-        Error: Line has no field separator
+        Original line: jdjsdhaak
+        Error: Line has no field separator.
         
         Line Number: 8
-        Line:
-        Error: Line has no field separator
+        Original line:
+        Error: Line has no field separator.
         
         Line Number: 9
-        Line: Marcus    10      12
-        Error: Line has not 2 fields only
+        Original line: Marcus   10      12
+        Error: Line must have 2 fields only, no more no less.
         
         Line Number: 14
-        Line: 8999      89
-        Error: Line has a value for 'knocked down pins' field that is not between 0 and 10
+        Original line: 8999     89
+        Error: The value for 'knocked down pins' field must be a value between 0 and 10. Found value: [89].
 
-**The app only processes/builds/calculates games data when all lines inside Player Chances File has no errors**.
+
+**The app only processes/builds/calculates games data when all lines inside Player Chances File are valid**.
 
 ## Game Invalidations
 
-The app would invalidate a player's game if any of the following rules occur:
+The app might invalidate a player's game if any of the following conditions are met:
 
-1. Game exceeds max chances (i.e. All 10 frames of the game have been completed and there is **STILL** chances data to process)
-2. Game has not enough chances data (i.e. Less than 10 frames have been completed and there is **NO** more chances data to process)
+1. Game exceeds max chances (i.e. All 10 frames of the game have been processed/completed and there are **STILL** chances data to process)
+2. Game has not enough chances data (i.e. Less than 10 frames have been processed/completed and there are **NO** more chances data to process)
 3. Any frame of the game exceeds the maximum pin fall sum value of 10.
 
-The app will print a message when any of the above rules occur:
+The app will print a message when any of the above conditions are met:
         
-        Game for player: Matt, invalidated. Max chances exceeded
+        Invalid games: 
+
+        Paul
+        Invalidation message: Frame 10: : Max player chances (scores/throws) exceeded.        
+
+        Leopold
+        Invalidation message: There are not enough player chances (scores/throws) data in the input file to build the game's information completely.
         
-        Game for player: Jeff, invalidated. Not enough chances data
-        
-        Game for player: Marcus, invalidated. Frame 3: exceeds pin falls max sum of 10
+        Logan
+        Invalidation message: Frame 4: Exceeds pin falls max sum of 10. Calculated sum: [19].
 
 **The app will calculate/print the scores for valid games only**.
 
-If **NO** valid games are present, a message will be printed, then the app will exit:
+If **NO** valid games are present, a message will be printed:
 
         No valid games to print.
 
 ## Links
 
 Rules for scoring a bowling game can be found on youtube **[here](https://www.youtube.com/watch?v=aBe71sD8o8c)** and **[here](https://www.youtube.com/watch?v=wY-fT2Gxa5s)**.
-A very complete PDF file can be found **[here](http://usbcongress.http.internapcdn.net/usbcongress/bowl/rulebook/2018-2019Rulebook.pdf)**.
