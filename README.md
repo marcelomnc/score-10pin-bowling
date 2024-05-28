@@ -1,4 +1,4 @@
-# java-challenge
+# score-10pin-bowling
 
 This is a **JAVA** command line app that parses/processes/builds/calculates/prints all the data (**pin falls** and **scores**) for all the 10 frames in a bowling game played by one or more players.
 
@@ -18,10 +18,16 @@ This app requires the following tools, so it can be built/executed:
 
 ## Installation
 
+Clone this repository:
+
+```bash
+git clone https://github.com/marcelomnc/score-10pin-bowling
+```
+
 Cd into this project's parent folder:
 
 ```bash
-cd JavaChallenge
+cd score-10pin-bowling
 ```
 
 Build the project using **maven**:
@@ -36,7 +42,7 @@ Maven will create a folder with the name **target**. Cd into it:
 cd target
 ```
 
-Inside it, you will find the app's executable jar file (`java-challenge-2.0-SNAPSHOT.jar`):
+Inside it, you will find the app's executable jar file (`score-10pin-bowling-2.0-SNAPSHOT.jar`):
 
 ```bash
 ls -l
@@ -45,7 +51,7 @@ drwxr-xr-x   4 marcelomnc  staff    128 May 22 22:58 classes
 drwxr-xr-x   3 marcelomnc  staff     96 May 22 22:58 generated-sources
 drwxr-xr-x   3 marcelomnc  staff     96 May 22 22:58 generated-test-sources
 -rw-r--r--   1 marcelomnc  staff  68435 May 22 22:58 jacoco.exec
--rw-r--r--   1 marcelomnc  staff  30598 May 22 22:58 java-challenge-2.0-SNAPSHOT.jar
+-rw-r--r--   1 marcelomnc  staff  30598 May 22 22:58 score-10pin-bowling-2.0-SNAPSHOT.jar
 drwxr-xr-x   3 marcelomnc  staff     96 May 22 22:58 maven-archiver
 drwxr-xr-x   3 marcelomnc  staff     96 May 22 22:58 maven-status
 drwxr-xr-x   3 marcelomnc  staff     96 May 22 22:58 site
@@ -58,7 +64,7 @@ drwxr-xr-x   5 marcelomnc  staff    160 May 22 22:58 test-classes
 To run this app you will need a text file (The **Player Chances File**) with all the data that must be parsed and processed. You can execute it setting the mentioned file path as the first and unique argument on the command line as follows:
 
 ```bash
-java -jar java-challenge-2.0-SNAPSHOT.jar [PATH_TO_YOUR_FILE]
+java -jar score-10pin-bowling-2.0-SNAPSHOT.jar [PATH_TO_YOUR_FILE]
 ```
 
 > **NOTE:** If the path to your file contains spaces (`" "`), don't forget to enclose it using double quotation marks as in: `"/folder/name with spaces/more spaces/file.txt"`.
@@ -187,10 +193,10 @@ The app will print a message when any of the above conditions are not met:
         This application expects just one argument (the input file path) in the command line, no more, no less.
         
         Player Chances File Errors Encountered:
-        Error: File in path [/Users/marcelomnc/Downloads/_Challenge/Code Challenge/Repo/JavaChallenge/src/test/resources/positive/scores-.txt] not found. Application execution aborted.
+        Error: File in path [/score-10pin-bowling/src/test/resources/positive/scores-.txt] not found. Application execution aborted.
 
         Player Chances File Errors Encountered:
-        Error: File in path [/Users/marcelomnc/Downloads/_Challenge/Code Challenge/Repo/JavaChallenge/src/test/resources/negative/empty.txt] is empty. Application execution aborted.
+        Error: File in path [/score-10pin-bowling/src/test/resources/negative/empty.txt] is empty. Application execution aborted.
 
 If an ``IOException`` is thrown while trying to read the file, a message will be printed out, then the app will exit:
 
