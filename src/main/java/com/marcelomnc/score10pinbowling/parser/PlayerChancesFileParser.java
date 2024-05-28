@@ -1,58 +1,80 @@
 package com.marcelomnc.score10pinbowling.parser;
 
+import com.marcelomnc.score10pinbowling.common.Constants;
 import com.marcelomnc.score10pinbowling.dto.GameDTO;
 import com.marcelomnc.score10pinbowling.dto.PlayerChanceDTO;
-import com.marcelomnc.score10pinbowling.dto.PlayerChancesFileLineError;
-import com.marcelomnc.score10pinbowling.dto.PlayerChancesFileParserResult;
+import com.marcelomnc.score10pinbowling.dto.PlayerChancesFileErrorLineDTO;
+import com.marcelomnc.score10pinbowling.dto.PlayerChancesFileParserResultDTO;
 import com.marcelomnc.score10pinbowling.validator.IPlayerChancesFileLineValidator;
 import com.marcelomnc.score10pinbowling.validator.PlayerChancesFileLineValidator;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 public class PlayerChancesFileParser implements IPlayerChancesFileParser {
-
     @Override
-    public PlayerChancesFileParserResult parsePlayerChancesFile(String playerChancesFilePath) throws IOException {
-        List<PlayerChancesFileLineError> errors = new ArrayList<>();
-        //Use linked hashmap to build player games order from the order of the chances inside the file
-        Map<String, GameDTO> games = new LinkedHashMap<String, GameDTO>();
+    public PlayerChancesFileParserResultDTO parsePlayerChancesFile(File playerChancesFile) throws IOException {
+        if (!playerChancesFile.exists()) {
+            return this.buildResultWithGeneralError(String.format(Constants.PCFL_VALIDATOR__FILE_DOES_NOT_EXISTS_MESSAGE_PATTERN, playerChancesFile.getPath()));
+        }
 
-        //Using the old way of reading files just to be able to grab the line number for the errors report
+        if (playerChancesFile.length() == 0) {
+            return this.buildResultWithGeneralError(String.format(Constants.PCFL_VALIDATOR__FILE_IS_EMPTY_MESSAGE_PATTERN, playerChancesFile.getPath()));
+        }
+
+        final List<PlayerChancesFileErrorLineDTO> errorLines = new ArrayList<>();
+        //Use linked hashmap to keep the player games order same as how the chances appear inside the file, key is the player's name
+        final Map<String, GameDTO> parsedGames = new LinkedHashMap<>();
+
+        final IPlayerChancesFileLineValidator playerChancesFileLineValidator = new PlayerChancesFileLineValidator();
+        final IPlayerChancesFileLineParser playerChancesFileLineParser = new PlayerChancesFileLineParser();
+
         int currentLineNumber = 1;
-        IPlayerChancesFileLineValidator playerChancesFileLineValidator = new PlayerChancesFileLineValidator();
-        PlayerChancesFileLineParser playerChancesFileLineParser = new PlayerChancesFileLineParser();
-
-        try (FileReader fr = new FileReader(playerChancesFilePath);
-             BufferedReader buff = new BufferedReader(fr)) {
+        //Using the old way of reading files just to be able to grab the line number for the errors report
+        try (final FileReader fr = new FileReader(playerChancesFile);
+             final BufferedReader buff = new BufferedReader(fr)) {
             String playerChancesFileLine = buff.readLine();
+
             while (playerChancesFileLine != null) {
-                PlayerChancesFileLineError error = playerChancesFileLineValidator.validate(playerChancesFileLine, currentLineNumber);
-                if (error == null) {
-                    PlayerChanceDTO playerChanceDTO = playerChancesFileLineParser.parseLine(playerChancesFileLine);
-                    GameDTO gameDTO = games.get(playerChanceDTO.getPlayerName());
+                final String currentLine = playerChancesFileLine;
+                playerChancesFileLineValidator.validate(currentLine, currentLineNumber)
+                        .map(
+                                //Line is not valid
+                                errorLines::add
+                        )
+                        .orElseGet(() -> {
+                            final PlayerChanceDTO playerChanceDTO = playerChancesFileLineParser.parseLine(currentLine);
+                            GameDTO gameDTO = parsedGames.get(playerChanceDTO.getPlayerName());
 
-                    if (gameDTO == null) {
-                        gameDTO = new GameDTO(playerChanceDTO.getPlayerName());
-                        games.put(playerChanceDTO.getPlayerName(), gameDTO);
-                    }
+                            if (gameDTO == null) {
+                                gameDTO = new GameDTO(playerChanceDTO.getPlayerName());
+                                parsedGames.put(playerChanceDTO.getPlayerName(), gameDTO);
+                            }
 
-                    gameDTO.getPlayerChanceDTOs().add(playerChanceDTO);
-                } else {
-                    //Line is not valid
-                    errors.add(error);
-                }
+                            gameDTO.getPlayerChances().add(playerChanceDTO);
+                            return null;
+                        });
 
                 playerChancesFileLine = buff.readLine();
                 currentLineNumber++;
             }
         }
 
-        return new PlayerChancesFileParserResult(errors, games);
+        return new PlayerChancesFileParserResultDTO(errorLines, parsedGames);
+    }
+
+    private PlayerChancesFileParserResultDTO buildResultWithGeneralError(String errorMessage) {
+        final PlayerChancesFileErrorLineDTO playerChancesFileErrorLine = new PlayerChancesFileErrorLineDTO(null, 1, errorMessage);
+        playerChancesFileErrorLine.setGeneral(true);
+        return new PlayerChancesFileParserResultDTO(
+                Collections.singletonList(playerChancesFileErrorLine),
+                Collections.emptyMap());
     }
 }

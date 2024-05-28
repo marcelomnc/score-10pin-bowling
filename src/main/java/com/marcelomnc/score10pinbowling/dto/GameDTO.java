@@ -1,18 +1,21 @@
 package com.marcelomnc.score10pinbowling.dto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameDTO {
-    private String playerName;
-    private List<FrameDTO> frameDTOS;
-    private List<PlayerChanceDTO> playerChanceDTOs;
+public class GameDTO implements Serializable {
+    private final String playerName;
+    private List<PlayerChanceDTO> playerChances;
+    private final List<FrameDTO> frames;
     private boolean valid;
+    private String invalidationMessage;
 
     public GameDTO(String playerName) {
         this.playerName = playerName;
-        this.frameDTOS = new ArrayList<>(10);
-        this.playerChanceDTOs = new ArrayList<>();
+        this.playerChances = new ArrayList<>();
+        //10 frames per game
+        this.frames = new ArrayList<>(10);
         this.valid = true;
     }
 
@@ -20,24 +23,16 @@ public class GameDTO {
         return playerName;
     }
 
-    public void setPlayerName(String playerName) {
-        this.playerName = playerName;
+    public List<PlayerChanceDTO> getPlayerChances() {
+        return playerChances;
     }
 
-    public List<FrameDTO> getFrameDTOS() {
-        return frameDTOS;
+    public void setPlayerChances(List<PlayerChanceDTO> playerChances) {
+        this.playerChances = playerChances;
     }
 
-    public void setFrameDTOS(List<FrameDTO> frameDTOS) {
-        this.frameDTOS = frameDTOS;
-    }
-
-    public List<PlayerChanceDTO> getPlayerChanceDTOs() {
-        return playerChanceDTOs;
-    }
-
-    public void setPlayerChanceDTOs(List<PlayerChanceDTO> playerChanceDTOs) {
-        this.playerChanceDTOs = playerChanceDTOs;
+    public List<FrameDTO> getFrames() {
+        return frames;
     }
 
     public boolean isValid() {
@@ -46,5 +41,13 @@ public class GameDTO {
 
     public void setValid(boolean valid) {
         this.valid = valid;
+    }
+
+    public String getInvalidationMessage() {
+        return invalidationMessage;
+    }
+
+    public void setInvalidationMessage(String invalidationMessage) {
+        this.invalidationMessage = invalidationMessage;
     }
 }

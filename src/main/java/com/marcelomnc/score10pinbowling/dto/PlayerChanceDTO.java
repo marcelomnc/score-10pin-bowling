@@ -1,16 +1,20 @@
 package com.marcelomnc.score10pinbowling.dto;
 
-public class PlayerChanceDTO {
-    private String playerName;
+import java.io.Serializable;
+
+public class PlayerChanceDTO implements Serializable {
+    private final String playerName;
     private int knockedDownPins;
-    private boolean foul;
+    private final boolean foul;
+
+    public PlayerChanceDTO(String playerName, int knockedDownPins, boolean foul) {
+        this.playerName = playerName;
+        this.knockedDownPins = knockedDownPins;
+        this.foul = foul;
+    }
 
     public String getPlayerName() {
         return playerName;
-    }
-
-    public void setPlayerName(String playerName) {
-        this.playerName = playerName;
     }
 
     public int getKnockedDownPins() {
@@ -23,9 +27,5 @@ public class PlayerChanceDTO {
 
     public boolean isFoul() {
         return foul;
-    }
-
-    public void setFoul(boolean foul) {
-        this.foul = foul;
     }
 }

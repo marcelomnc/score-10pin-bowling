@@ -3,19 +3,16 @@ package com.marcelomnc.score10pinbowling.parser;
 import com.marcelomnc.score10pinbowling.common.Constants;
 import com.marcelomnc.score10pinbowling.dto.PlayerChanceDTO;
 
-class PlayerChancesFileLineParser {
+class PlayerChancesFileLineParser implements IPlayerChancesFileLineParser {
+    @Override
+    public PlayerChanceDTO parseLine(String playerChancesFileLine) {
+        final String[] fields = playerChancesFileLine.split(Constants.PLAYER_CHANCES_FILE__FIELD_SEPARATOR);
 
-    PlayerChanceDTO parseLine(String playerChancesFileLine) {
-        PlayerChanceDTO toRet = new PlayerChanceDTO();
-        String[] fields = playerChancesFileLine.split(Constants.PLAYER_CHANCES_FILE__FIELD_SEPARATOR);
-        toRet.setPlayerName(fields[0]);
         if (fields[1].equals(Constants.PLAYER_CHANCES_FILE__FOUL_INDICATOR)) {
-            //F stands for FOUL and means 0 pins fell
-            toRet.setFoul(true);
-            toRet.setKnockedDownPins(0);
+            //F stands for FOUL and means 0 pins were knocked down
+            return new PlayerChanceDTO(fields[0], 0, true);
         } else {
-            toRet.setKnockedDownPins(Integer.valueOf(fields[1]));
+            return new PlayerChanceDTO(fields[0], Integer.parseInt(fields[1]), false);
         }
-        return toRet;
     }
 }
